@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths/>
+ <validation>
+  <core validator-id="jboss.cdi.core">
+   <linked-resource name="%1;%2;%3;%4;" path="%0"/>
+   <linked-resource name="%1;%2;%3;%4;" path="%5"/>
+  </core>
+  <el/>
+ </validation>
+ <aliases>
+  <alias
+   path="/Bank_Kunde_EJB_V2/ejbModule/de/bank/kunde/usecase/impl/KundeninformationFuerNr.java" value="%1"/>
+  <alias
+   path="/Bank_Kunde_EJB_V2/ejbModule/de/bank/kunde/usecase/impl/KundenPflegen.java" value="%2"/>
+  <alias
+   path="/Bank_Kunde_EJB_V2/ejbModule/de/bank/kunde/dao/KundeDAO.java" value="%5"/>
+  <alias
+   path="/Bank_Kunde_EJB_V2/ejbModule/de/bank/kunde/usecase/impl/KundenSuchen.java" value="%3"/>
+  <alias
+   path="/Bank_Kunde_EJB_V2/ejbModule/de/bank/kunde/dao/GenericDAO.java" value="%0"/>
+  <alias
+   path="/Bank_Kunde_EJB_V2/ejbModule/de/bank/kunde/usecase/impl/KontoRegistrieren.java" value="%4"/>
+ </aliases>
+ <includes/>
+ <uris/>
+</kb-project>

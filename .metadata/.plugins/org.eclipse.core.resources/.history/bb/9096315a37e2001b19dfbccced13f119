@@ -1,0 +1,26 @@
+package de.impf.mb;
+
+import java.io.Serializable;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named("ImpfstoffchargeMB")
+@RequestScoped
+public class ImpfstoffchargeMB implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6454512266816010697L;
+	
+	@Inject
+	IAnzeigeImpfdosenMenge anzeigeImpfdosenMengeFacade;
+	
+	@Inject
+	IChargeErfassen chargeErfassenFacade;
+	
+	@Inject
+	IChargeSuchen chargeSuchenFacade;
+
+}

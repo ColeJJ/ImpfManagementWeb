@@ -1,0 +1,17 @@
+package de.impf.mb;
+
+import java.io.Serializable;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named("PatientMB")
+@RequestScoped
+public class PatientMB implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2340591047267891474L;
+	
+}

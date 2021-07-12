@@ -1,0 +1,12 @@
+package de.impf.mb;
+
+import java.io.Serializable;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named("ImpfungMB")
+@RequestScoped
+public class ImpfungMB implements Serializable{
+
+}

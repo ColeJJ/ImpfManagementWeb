@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;bank.mb&apos; to &apos;HA2_JSF_Client/src/main/java&apos;&#x0A;- Original project: &apos;Bank_JSF_Client_V2&apos;&#x0A;- Destination element: &apos;HA2_JSF_Client/src/main/java&apos;&#x0A;- Original element: &apos;Bank_JSF_Client_V2/src/main/java/bank.mb&apos;" description="Copy package" destination="=HA2_JSF_Client/src\/main\/java" element1="/src\/main\/java&lt;bank.mb" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1625915287171" version="1.0"/>
+</session>

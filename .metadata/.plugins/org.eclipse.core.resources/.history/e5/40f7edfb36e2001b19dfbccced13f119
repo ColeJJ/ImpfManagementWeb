@@ -1,0 +1,10 @@
+package de.impf.mb;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named("ImpfstoffchargeMB")
+@RequestScoped
+public class ImpfstoffchargeMB {
+
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+	<title>Konto anlegen</title>
+</h:head>	
+
+<h:body>
+ 
+ 
+	<h:form id="kontoAnlegenForm">
+		<h:messages />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Kundennummer:" />
+			<h:inputText value="#{kontoMB.kundenNr}" />
+			<h:commandButton value="Starte Suche Kunden-Infos" 
+					action="#{kontoMB.starteKundensuche()}" 
+					style=" width: 200px" />
+			<br/>
+			<h:outputLabel value="Kunden-Nr:" />	
+			<h:outputLabel value="#{kontoMB.kundeTO.kundennummer}"/>
+			<h:outputLabel value="Vorname:" />	
+			<h:outputLabel value="#{kontoMB.kundeTO.vorname}"/>
+			<h:outputLabel value="Nachname:" />	
+			<h:outputLabel value="#{kontoMB.kundeTO.nachname}"/>
+		</h:panelGrid>
+		<br />
+		<h:commandButton value="Konto Anlegen" action="#{kontoMB.kontoAnlegen()}" style=" width: 200px" >
+		</h:commandButton>
+
+	</h:form>
+	<h:form>
+		<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
+		<h:commandButton value="Abbruch" action="#{kontoMB.kontoAnlegenAbbrechenClicked()}" style=" width: 200px" />
+	</h:form>
+	
+	<br />
+	
+ 
+</h:body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="J2EE_IMPORT_EJB">
+		<item value="/Users/tounland/Downloads/Bank_Kunde_EJB_V2.jar"/>
+		<item value="/Users/tounland/Downloads/Bank_Kunde_EJB_V1.jar"/>
+		<item value="/Users/tounland/Downloads/Bank_Konto_EJB_V1.jar"/>
+		<item value="/Users/tounland/Downloads/Bank_Konto_EJB_V2.jar"/>
+		<item value="/Users/tounland/Downloads/Bank_Security_EJB_V2.jar"/>
+	</list>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="WildFly 21.0 Runtime"/>
+	</list>
+	<list key="J2EE_IMPORT_null">
+		<item value="/Users/tounland/Downloads/Bank_JSF_Client_V1.war"/>
+		<item value="/Users/tounland/Downloads/Bank_JSF_Client_V2.war"/>
+	</list>
+</section>

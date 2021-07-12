@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+	<title>Privatkunde Aktualisieren</title>
+</h:head>	
+
+<h:body>
+ 
+ 
+	<h:form id="privatkundeUpdateForm">
+		<h:messages />
+		<h3>Art des Kunden</h3>
+ 		<h:outputLabel value="Kd.-Nr.: " />
+		<h:inputText value="#{kundeMB.pkTo.kundennummer}" readonly="true" />
+		<h:inputHidden value=  "#{kundeMB.pkTo.kundennummer}" />	
+		<h:selectOneRadio value="#{kundeMB.kundenArt}" readonly = "true">
+				<f:selectItem itemValue="privatkunde" itemLabel="Privatkunde"/>
+				<f:selectItem itemValue="geschaeftskunde" itemLabel="Gesch&auml;ftskunde"/>
+		</h:selectOneRadio>
+		<br/>
+
+		<h:panelGrid columns="2" >	
+			<h:outputLabel value="Geschlecht" />
+			<h:selectOneRadio value="#{kundeMB.pkTo.geschlecht}">
+					<f:selectItem itemValue="Mann" itemLabel="Mann"/>
+					<f:selectItem itemValue="Frau" itemLabel="Frau"/>
+					<f:selectItem itemValue="Unbestimmt" itemLabel="Unbestimmt"/>
+			</h:selectOneRadio>
+			<h:outputLabel value="Vorname " />
+			<h:inputText value="#{kundeMB.pkTo.vorname}" />
+			<h:outputLabel value="Name" />
+			<h:inputText value="#{kundeMB.pkTo.nachname}"></h:inputText>
+			<h:outputLabel value="Strasse" />
+			<h:inputText value="#{kundeMB.pkTo.str}"></h:inputText>
+			<h:outputLabel value="Hausnummer" />
+			<h:inputText value="#{kundeMB.pkTo.nr}"></h:inputText>
+			<h:outputLabel value="PLZ" />
+			<h:inputText value="#{kundeMB.pkTo.plz}"></h:inputText>
+			<h:outputLabel value="Ort" />
+			<h:inputText value="#{kundeMB.pkTo.ort}"></h:inputText>
+		</h:panelGrid>
+	
+		
+		<br />
+		<h:commandButton value="Speichern" action="#{kundeMB.updatePrivatkundeEnd()}" style=" width: 200px" >
+			<f:setPropertyActionListener value="#{kundeMB.pkTo}" target="#{kundeMB.pkTo}"/>
+		</h:commandButton>
+	</h:form>
+	<h:form>
+	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
+		<h:commandButton value="Abbruch" action="#{kundeMB.updateKundeAbbrechen()}" style=" width: 200px" />
+	</h:form>
+	
+	<br />
+	
+ 
+</h:body>
+</html>

@@ -1,0 +1,32 @@
+package de.impf.mb;
+
+import java.io.Serializable;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import de.impf.patient.usecase.IPatientenPflegen;
+import de.impf.patient.usecase.IPatientenSuchen;
+
+@Named("PatientMB")
+@RequestScoped
+public class PatientMB implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2340591047267891474L;
+	
+	@Inject
+	IPatientenPflegen patientPflegenFacade;
+	
+	@Inject
+	IPatientenSuchen patientSuchenFacade;
+	
+	public PatientMB() {
+	}
+	
+	
+	
+}

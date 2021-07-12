@@ -1,0 +1,10 @@
+package de.impf.patient.usecase;
+
+import java.util.List;
+
+import de.impf.patient.entity.PatientTO;
+
+public interface IPatientenSuchen {
+
+	public List<PatientTO> patientSuchenByName(String vorname, String name);
+}

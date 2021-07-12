@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;GenericDAO.java&apos; to &apos;HA2_TorbenUnland_EJB_ImpfstoffCharge/ejbModule/de.impf.impfstoffcharge.dao&apos;&#x0A;- Original project: &apos;HA2_TorbenUnland_EJB_Patient&apos;&#x0A;- Destination element: &apos;HA2_TorbenUnland_EJB_ImpfstoffCharge/ejbModule/de.impf.impfstoffcharge.dao&apos;&#x0A;- Original element: &apos;de.security.dao.GenericDAO.java&apos;" description="Copy compilation unit" destination="=HA2_TorbenUnland_EJB_ImpfstoffCharge/ejbModule&lt;de.impf.impfstoffcharge.dao" element1="/ejbModule&lt;de.security.dao{GenericDAO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1625307510968" units="1" version="1.0"/>
+</session>

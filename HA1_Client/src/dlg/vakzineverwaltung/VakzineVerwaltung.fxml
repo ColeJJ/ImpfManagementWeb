@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="327.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dlg.vakzineverwaltung.VakzineVerwaltungController">
+   <children>
+      <Label layoutX="125.0" layoutY="27.0" text="Informationssystem" textFill="#1e42b7" underline="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="171.0" layoutY="63.0" text="Impfung erfassen">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="bt_chargeErfassen" layoutX="147.0" layoutY="126.0" mnemonicParsing="false" onAction="#chargeErfassenClicked" text="Impfstoffcharge erfassen" />
+      <Button fx:id="bt_dosenHerstellerAnzeigen" layoutX="138.0" layoutY="170.0" mnemonicParsing="false" onAction="#buttonDosenHerstellerAnzeigenClicked" text="Dosen je Hersteller anzeigen" />
+      <Button fx:id="bt_zurueckHauptmenue" layoutX="64.0" layoutY="257.0" mnemonicParsing="false" onAction="#zurueckHauptmenueClicked" text="Zurück zum Hauptmenü" />
+   </children>
+</AnchorPane>

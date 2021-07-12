@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths/>
+ <validation>
+  <core validator-id="jboss.cdi.core">
+   <linked-resource name="%1;" path="%0"/>
+   <linked-resource name="%1;" path="%2"/>
+  </core>
+  <el/>
+ </validation>
+ <aliases>
+  <alias
+   path="/Bank_Security_EJB_V2/ejbModule/de/security/dao/GenericDAO.java" value="%2"/>
+  <alias
+   path="/Bank_Security_EJB_V2/ejbModule/de/security/facade/UserFacadeImp.java" value="%1"/>
+  <alias
+   path="/Bank_Security_EJB_V2/ejbModule/de/security/dao/UserDAO.java" value="%0"/>
+ </aliases>
+ <includes/>
+ <uris/>
+</kb-project>

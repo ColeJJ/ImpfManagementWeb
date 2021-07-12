@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+	<title>Kunde anlegen</title>
+</h:head>	
+
+<h:body>
+ 
+ 
+	<h:form id="kundeSuchenForm">
+		<h:messages />
+		<h3>Kundensuche</h3>
+		<h:panelGrid columns="2">
+			
+			<h:outputLabel value="Name:" />
+			<h:inputText value="#{kundeMB.sucheName}" />
+	
+			<h:outputLabel value="Vorname:" />
+			<h:inputText value="#{kundeMB.sucheVorname}" />
+		
+		</h:panelGrid>
+		<h:commandButton value="Suchen" action="#{kundeMB.sucheKundeStartClicked()}" style=" width: 200px" >
+	
+		</h:commandButton>
+		<h:commandButton value="Abbruch" action="#{kundeMB.sucheKundeAbbruch()}" style=" width: 200px"
+			immediate="true" />
+	</h:form>
+
+ 
+</h:body>
+</html>

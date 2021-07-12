@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+	<title>Kundenliste</title>
+</h:head>	
+
+<h:body>
+	<h:form id = "kundenSuchAnzeigeForm">
+ 	<h3>Suchergebnis</h3>
+ 	<h:messages for = "kundenSuchAnzeigeForm" />
+ 	<h:dataTable 
+ 			value="#{kundeMB.starteSuche() }" 
+ 			var="kunde"
+ 			styleClass="table" 
+ 			headerClass="tableColumnsHeader"
+ 			rowClasses="tableFirstLine,tableNextLine">
+ 		<h:column>
+ 			<f:facet name="header"><h:outputText value="Kd-Nr" /></f:facet>
+ 			#{kunde.kundennummer}
+ 		</h:column>
+ 		<h:column>
+ 			<f:facet name="header">Vorname</f:facet>
+ 			#{kunde.vorname}
+ 		</h:column>
+ 		<h:column>
+ 			<f:facet name="header">Nachname</f:facet>
+ 			#{kunde.nachname}
+ 		</h:column>
+ 		<h:column>
+ 			<f:facet name="header">Strasse</f:facet>
+ 			#{kunde.str}
+ 		</h:column>
+ 		 <h:column>
+ 			<f:facet name="header">HNr</f:facet>
+ 			#{kunde.nr}
+ 		</h:column>
+ 		 <h:column>
+ 			<f:facet name="header">PLZ</f:facet>
+ 			#{kunde.plz}
+ 		</h:column>
+ 		 <h:column>
+ 			<f:facet name="header">Ort</f:facet>
+ 			#{kunde.ort}
+ 		</h:column>
+		<!-- 
+		<h:column>
+			<h:panelGrid columns="2">
+				<h:inputHidden value="#{kunde.kundennummer}" />
+				
+				<h:commandButton action="#{kundeMB.updateKundeStart2()}" value="Update">
+					<f:setPropertyActionListener target="#{kundeMB.sselectedKdNr}" value="#{kunde}"/>
+					<f:setPropertyActionListener 
+						target="#{kunde.getClass().getSimpleName() ==  'PrivatkundeTO' ? kundeMB.pkTo : kundeMB.gkTo}" 
+						value="#{kunde}"/>  
+				</h:commandButton>
+				<h:commandButton action="#{kundeMB.deleteKundeStart()}" value="L&ouml;schen">
+					<f:setPropertyActionListener target="#{kundeMB.selectedKundeTo}" value="#{kunde}"/>
+				</h:commandButton>
+			</h:panelGrid>
+		</h:column>
+		-->
+ 	</h:dataTable>
+	
+	<h:commandButton immediate="true" 
+			value="Abbruch" 
+			action="#{kundeMB.kundeListanzeigeAbbrechenClicked()}" style=" width: 200px" />
+	
+	</h:form>
+	
+ 
+</h:body>
+</html>

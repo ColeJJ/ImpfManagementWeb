@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: eclipselink.jar jakarta.persistence.source_2.2.3.jar jakarta
+ .persistence_2.2.3.jar org.eclipse.persistence.jpa.modelgen.source_2.7.
+ 6.v20200131-b7c997804f.jar org.eclipse.persistence.jpa.modelgen_2.7.6.v
+ 20200131-b7c997804f.jar org.eclipse.persistence.jpars.source_2.7.6.v202
+ 00131-b7c997804f.jar org.eclipse.persistence.jpars_2.7.6.v20200131-b7c9
+ 97804f.jar
+
