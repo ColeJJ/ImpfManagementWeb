@@ -1,11 +1,16 @@
 package de.impf.impfstoffcharge.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 import de.impf.impfstoffcharge.entity.internal.Impfstoffcharge;
@@ -31,12 +36,32 @@ public class ImpfstoffchargeDAO extends GenericDAO<Impfstoffcharge>{
 	}
 	
 	public List<ImpfstoffchargeTO> getSummedChargenByHersteller() {
-		List<ImpfstoffchargeTO> chargenTOListe = new ArrayList<ImpfstoffchargeTO>();
-		List<Impfstoffcharge> chargenListe= super.findListResult(Impfstoffcharge.GET_SUMMEDCHARGEN_BY_HERSTELLER, null);
-		for(Impfstoffcharge aCharge:chargenListe) {
-			chargenTOListe.add(aCharge.toImpfstoffchargeTO());
+		
+		List<ImpfstoffchargeTO> chargenTOList = new ArrayList<ImpfstoffchargeTO>();
+		List<Impfstoffcharge> chargenList = new ArrayList<Impfstoffcharge>();
+		String[] hersteller = {"Biontech", "AstraZeneca", "Moderna"};
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		
+		for(int i=0; i < hersteller.length; i++) {
+			ImpfstoffchargeTO aChargeTO = new ImpfstoffchargeTO();
+			aChargeTO.setHersteller(hersteller[i]);
+			parameters.put("hersteller", hersteller[i]);
+			chargenList = super.findListResult(Impfstoffcharge.FIND_BY_HERSTELLER, parameters);
+			if(chargenList!=null) {
+				for (Impfstoffcharge aCharge:chargenList) {
+					aChargeTO.setAnzahl(aChargeTO.getAnzahl()+aCharge.getAnzahl());
+				}
+			} else {
+				aChargeTO.setAnzahl(0);
+			}
+			chargenTOList.add(aChargeTO);
 		}
-		return chargenTOListe;
+		
+		for(ImpfstoffchargeTO chargt:chargenTOList) {
+			System.out.println(chargt.getHersteller());
+		}
+		return chargenTOList;
 	}
 	
 	public List<ImpfstoffchargeTO> getChargenByHerstellerAsTO(){

@@ -15,21 +15,21 @@
             <br/> <br/>
             <h:commandButton 
             			value="Impfstoffcharge erfassen" 
-            			action="#{impfungMB.starteChargeErfassen}"
+            			action="#{impfstoffchargeMB.starteChargeErfassen()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
             <br />
             <h:commandButton 
             			value="Anzeige Impfdosenmenge" 
-            			action="#{impfungMB.starteAnzeigeImpfdosenMenge}"
+            			action="#{impfstoffchargeMB.starteAnzeigeImpfdosenMenge()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
              <br />
             <h:commandButton 
              			value="Abbruch" 
-             			action="#{impfungMB.vakzineVwAbbruchKlicked()}"
+             			action="#{impfstoffchargeMB.vakzineVwAbbruchKlicked()}"
              			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>

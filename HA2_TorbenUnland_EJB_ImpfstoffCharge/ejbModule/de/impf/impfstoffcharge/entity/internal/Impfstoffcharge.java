@@ -1,6 +1,9 @@
 package de.impf.impfstoffcharge.entity.internal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -20,7 +23,12 @@ import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 @NamedQuery(name="Impfstoffcharge.findByID", query="select i from Impfstoffcharge i where i.id = :id")
 @NamedQuery(name="Impfstoffcharge.getSummedChargenByHersteller", query="select i.hersteller, sum(i.anzahl) as MENGE from Impfstoffcharge i group by i.hersteller")
 @NamedQuery(name="Impfstoffcharge.findByHersteller", query="select i from Impfstoffcharge i where i.hersteller = :hersteller")
-public class Impfstoffcharge {
+public class Impfstoffcharge implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1646411299694852934L;
 	
 	public static final String GET_SUMMEDCHARGEN_BY_HERSTELLER = "Impfstoffcharge.getSummedChargenByHersteller";
 	public static final String FIND_BY_ID = "Impfstoffcharge.findByID";
@@ -49,24 +57,21 @@ public class Impfstoffcharge {
 		this.datumAnlieferung = datumAnlieferung;
 	}
 	
-	public Impfstoffcharge(int anzahl, String hersteller) {
+	public Impfstoffcharge(String hersteller, int anzahl) {
 		this.anzahl = anzahl;
 		this.hersteller = hersteller;
 	}
 	
-	public Impfstoffcharge(ImpfstoffchargeTO impfstoffchargeTO) {
-		this.chargeID = impfstoffchargeTO.getChargeID();
-		this.anzahl = impfstoffchargeTO.getAnzahl();
-		this.hersteller = impfstoffchargeTO.getHersteller();
-		this.datumAnlieferung = impfstoffchargeTO.getDatumAnlieferung();
-	}
-	
 	public ImpfstoffchargeTO toImpfstoffchargeTO() {
+		
+		//Set Pattern for convertion of LocalDate to String
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		
 		ImpfstoffchargeTO aImpfstoffchargeTO = new ImpfstoffchargeTO();
 		aImpfstoffchargeTO.setChargeID(this.getChargeID());
 		aImpfstoffchargeTO.setAnzahl(this.getAnzahl());
 		aImpfstoffchargeTO.setHersteller(this.getHersteller());
-		aImpfstoffchargeTO.setDatumAnlieferung(this.getDatumAnlieferung());
+		aImpfstoffchargeTO.setDatumAnlieferung(this.getDatumAnlieferung().format(formatter));
 		return aImpfstoffchargeTO;
 	}
 

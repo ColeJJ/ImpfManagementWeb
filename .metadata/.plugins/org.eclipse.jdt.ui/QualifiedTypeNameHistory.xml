@@ -8,8 +8,6 @@
     <fullyQualifiedTypeName name="de.security.entity.PatientTO"/>
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.entity.impl.Impfstoffcharge"/>
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.entity.internal.Impfstoffcharge"/>
-    <fullyQualifiedTypeName name="java.util.Collection"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.dao.ImpfstoffchargeDAO"/>
     <fullyQualifiedTypeName name="javax.persistence.AccessType"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
@@ -19,7 +17,6 @@
     <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="de.impf.termin.entity.internal.Impfung"/>
@@ -36,7 +33,6 @@
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.entity.ImpfstoffchargeTO"/>
     <fullyQualifiedTypeName name="de.impf.termin.usecase.IImpfungPflegen"/>
     <fullyQualifiedTypeName name="de.impf.termin.entity.ImpfungTO"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="javax.inject.Inject"/>
     <fullyQualifiedTypeName name="de.impf.termin.usecase.ITerminePflegen"/>
     <fullyQualifiedTypeName name="de.impf.termin.usecase.ITermineSuchen"/>
@@ -45,4 +41,14 @@
     <fullyQualifiedTypeName name="javax.ejb.Local"/>
     <fullyQualifiedTypeName name="javax.inject.Named"/>
     <fullyQualifiedTypeName name="javax.enterprise.context.RequestScoped"/>
+    <fullyQualifiedTypeName name="java.util.Locale"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="java.time.format.FormatStyle"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="java.util.ListIterator"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

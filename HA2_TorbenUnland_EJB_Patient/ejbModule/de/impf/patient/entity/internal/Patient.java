@@ -58,7 +58,7 @@ public class Patient {
 	
 	public PatientTO toPatientTO() {
 		//Set Pattern for convertion of LocalDate to String
-		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);;
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
 		
 		PatientTO aPatientTO = new PatientTO();
 		aPatientTO.setPatientenID(this.getPatientenID());

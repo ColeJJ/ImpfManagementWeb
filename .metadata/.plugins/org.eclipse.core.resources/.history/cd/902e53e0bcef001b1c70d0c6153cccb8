@@ -1,7 +1,0 @@
-package de.impf.mb;
-
-@Named("MenueMB")
-@RequestScoped
-public class MenueMB {
-
-}
