@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;WEB-INF&apos;&#x0A;- Original project: &apos;Bank_JSF_Client_V2&apos;&#x0A;- Destination element: &apos;WEB-INF&apos;&#x0A;- Original elements:&#x0A;     jboss-web.xml&#x0A;     web.xml&#x0A;     beans.xml&#x0A;     faces-config.xml" description="Copy files" element1="src/main/webapp/WEB-INF/jboss-web.xml" element2="src/main/webapp/WEB-INF/web.xml" element3="src/main/webapp/WEB-INF/beans.xml" element4="src/main/webapp/WEB-INF/faces-config.xml" files="4" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1626261656451" target="/HA2_TorbenUnland_JSF_Client/src/main/webapp/WEB-INF" units="0" version="1.0"/>
+</session>

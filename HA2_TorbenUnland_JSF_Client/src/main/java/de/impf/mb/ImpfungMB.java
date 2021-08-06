@@ -32,5 +32,22 @@ public class ImpfungMB implements Serializable{
 	public void initBean() {
 		this.aImpfungTO = null;
 	}
+	
+	//Navigation
+	public String starteVakzineverwaltung() {
+		return "VAKZINEVERWALTUNG_MENUE";
+	}
+	
+	public String starteChargeErfassen() {
+		return "IMPFCHARGE_ERFASSEN";
+	}
+	
+	public String starteAnzeigeImpfdosenMenge() {
+		return "ANZEIGE_IMPFDOSENMENGE";
+	}
+
+	public String vakzineVwAbbruchKlicked() {
+		return "BACK_TO_HAUPTMENUE";
+	}
 
 }

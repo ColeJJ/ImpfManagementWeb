@@ -36,5 +36,22 @@ public class TerminMB implements Serializable{
 	public void initBean() {
 		this.aTerminTO = null;
 	}
+	
+	
+	//Navigation
+	public String starteTerminverwaltung() {
+		return "TERMINEVERWALTUNG_MENUE";
+	}
+	
+	public String starteTerminAnlegen() {
+		return "TERMINE_PFLEGEN";
+	}
+	
+	public String starteImpfungAnlegen() {
+		return "IMPFUNG_PFLEGEN";
+	}
 
+	public String terminVwAbbruchKlicked() {
+		return "BACK_TO_HAUPTMENUE";
+	}
 }

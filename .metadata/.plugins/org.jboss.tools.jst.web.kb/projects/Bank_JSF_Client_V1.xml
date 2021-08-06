@@ -7,19 +7,19 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/c-1_0.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/c-1_0.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/fmt-1_0.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/fmt-1_0.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/sql-1_0.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/sql-1_0.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/x-1_0.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-compat-1.2.6-RC1.jar/meta-inf/x-1_0.tld" project="Bank_JSF_Client_V2"/>
     </library>
    </libraries>
   </path>
@@ -129,51 +129,51 @@
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/c-1_0-rt.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/c-1_0-rt.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/c-1_1.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/c-1_1.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/c.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/c.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/fmt-1_0-rt.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/fmt-1_0-rt.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/fmt.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/fmt.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/fn.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/fn.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/permittedtaglibs.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/permittedtaglibs.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/scriptfree.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/scriptfree.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/sql-1_0-rt.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/sql-1_0-rt.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/sql.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/sql.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/x-1_0-rt.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/x-1_0-rt.tld" project="Bank_JSF_Client_V2"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/x.tld" project="Bank_JSF_Client_V1"/>
+      path="FileSystems/lib-taglibs-standard-impl-1.2.6-RC1.jar/meta-inf/x.tld" project="Bank_JSF_Client_V2"/>
     </library>
    </libraries>
   </path>
@@ -566,18 +566,5 @@
   <alias path="kundeMB.pkTo.vorname" value="%51"/>
  </aliases>
  <includes/>
- <uris>
-  <uri value="http://xmlns.jcp.org/jsf/core">
-   <prefix>f</prefix>
-  </uri>
-  <uri value="http://xmlns.jcp.org/jsf/html">
-   <prefix>h</prefix>
-  </uri>
-  <uri value="http://java.sun.com/jsf/core">
-   <prefix>f</prefix>
-  </uri>
-  <uri value="http://java.sun.com/jsf/html">
-   <prefix>h</prefix>
-  </uri>
- </uris>
+ <uris/>
 </kb-project>

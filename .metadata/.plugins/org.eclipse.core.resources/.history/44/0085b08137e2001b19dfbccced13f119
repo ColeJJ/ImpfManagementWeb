@@ -1,7 +1,0 @@
-package de.impf.mb;
-
-@Named("ImpfungMB")
-@RequestScoped
-public class ImpfungMB {
-
-}

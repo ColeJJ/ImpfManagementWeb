@@ -36,8 +36,6 @@
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.entity.ImpfstoffchargeTO"/>
     <fullyQualifiedTypeName name="de.impf.termin.usecase.IImpfungPflegen"/>
     <fullyQualifiedTypeName name="de.impf.termin.entity.ImpfungTO"/>
-    <fullyQualifiedTypeName name="javax.inject.Named"/>
-    <fullyQualifiedTypeName name="javax.enterprise.context.RequestScoped"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="javax.inject.Inject"/>
     <fullyQualifiedTypeName name="de.impf.termin.usecase.ITerminePflegen"/>
@@ -45,4 +43,6 @@
     <fullyQualifiedTypeName name="de.impf.termin.entity.TerminTO"/>
     <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
     <fullyQualifiedTypeName name="javax.ejb.Local"/>
+    <fullyQualifiedTypeName name="javax.inject.Named"/>
+    <fullyQualifiedTypeName name="javax.enterprise.context.RequestScoped"/>
 </qualifiedTypeNameHistroy>

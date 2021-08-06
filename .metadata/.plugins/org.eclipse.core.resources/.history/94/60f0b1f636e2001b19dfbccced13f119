@@ -1,7 +1,0 @@
-package de.impf.mb;
-
-@Named("ImpfstoffchargeMB")
-@RequestScoped
-public class ImpfstoffchargeMB {
-
-}

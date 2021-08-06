@@ -34,7 +34,4 @@ public class PatientenPflegen implements IPatientenPflegen{
 		for(Patient aPatient:aList) returnList.add(aPatient.toPatientTO());
 		return returnList;
 	}
-	
-	
-
 }

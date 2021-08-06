@@ -1,6 +1,8 @@
 package de.impf.patient.entity.internal;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -54,25 +56,18 @@ public class Patient {
 		this.telefonNr = telefonNr;
 	}
 	
-	public Patient(PatientTO aPatientTO) {
-		this.patientenID = aPatientTO.getPatientenID();
-		this.name = aPatientTO.getName();
-		this.vorname = aPatientTO.getVorname();
-		this.geburtsdatum = aPatientTO.getGeburtsdatum();
-		this.mail = aPatientTO.getMail();
-		this.telefonNr = aPatientTO.getTelefonNr();
-	}
-	
 	public PatientTO toPatientTO() {
+		//Set Pattern for convertion of LocalDate to String
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);;
+		
 		PatientTO aPatientTO = new PatientTO();
 		aPatientTO.setPatientenID(this.getPatientenID());
 		aPatientTO.setName(this.getName());
 		aPatientTO.setVorname(this.getVorname());
-		aPatientTO.setGeburtsdatum(this.getGeburtsdatum());
+		aPatientTO.setGeburtsdatum(this.getGeburtsdatum().format(formatter));
 		aPatientTO.setTelefonNr(this.getTelefonNr());
 		aPatientTO.setMail(this.getMail());
-		return aPatientTO;
-		
+		return aPatientTO;	
 	}
 
 	public int getPatientenID() {

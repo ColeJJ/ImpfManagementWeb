@@ -2,6 +2,8 @@ package de.impf.patient.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import de.impf.patient.entity.internal.Patient;
 
@@ -17,19 +19,25 @@ public class PatientTO implements Serializable{
 	private int patientenID;
 	private String name;
 	private String vorname;
-	private LocalDate geburtsdatum;
+	private String geburtsdatum;
 	private String mail;
 	private String telefonNr;
+	
 	
 	public PatientTO() {
 	}
 	
 	public Patient toPatient() {
+		
+		//Convert String to LocalDate
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		LocalDate date = LocalDate.parse(this.getGeburtsdatum(), formatter);
+		
 		Patient aPatient = new Patient(
 				this.getPatientenID(),
 				this.getName(),
 				this.getVorname(),
-				this.getGeburtsdatum(),
+				date,
 				this.getMail(),
 				this.getTelefonNr());
 		return aPatient;
@@ -63,11 +71,11 @@ public class PatientTO implements Serializable{
 		this.vorname = vorname;
 	}
 
-	public LocalDate getGeburtsdatum() {
+	public String getGeburtsdatum() {
 		return geburtsdatum;
 	}
 
-	public void setGeburtsdatum(LocalDate geburtsdatum) {
+	public void setGeburtsdatum(String geburtsdatum) {
 		this.geburtsdatum = geburtsdatum;
 	}
 

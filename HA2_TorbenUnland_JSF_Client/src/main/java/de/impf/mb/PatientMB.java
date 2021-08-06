@@ -37,7 +37,7 @@ public class PatientMB implements Serializable{
 	
 	@PostConstruct
 	public void initBean() {
-		this.aPatientTO = null;
+		this.aPatientTO = new PatientTO();
 	}
 	
 	private void sendInfoMessageToUser(String message){
@@ -67,8 +67,25 @@ public class PatientMB implements Serializable{
 		
 	}
 	
+	//Navigation
+	public String startePatientAnlegen() {
+		return "PATIENT_ANLEGEN";
+	}
+	
 	public String patientAnlegenAbbrechenClicked() {
 		return "PATIENT_ANLEGEN_ABBRECHEN";
+	}
+	
+	public String patientVwAbbruchKlicked() {
+		return "BACK_TO_HAUPTMENUE";
+	}
+
+	public PatientTO getaPatientTO() {
+		return aPatientTO;
+	}
+
+	public void setaPatientTO(PatientTO aPatientTO) {
+		this.aPatientTO = aPatientTO;
 	}
 	
 }
