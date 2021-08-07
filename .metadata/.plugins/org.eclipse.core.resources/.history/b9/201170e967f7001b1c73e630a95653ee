@@ -1,0 +1,71 @@
+package de.impf.impfstoffcharge.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+
+import javax.ejb.Stateless;
+import javax.persistence.Query;
+
+import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
+import de.impf.impfstoffcharge.entity.internal.Impfstoffcharge;
+
+@Stateless
+public class ImpfstoffchargeDAO extends GenericDAO<Impfstoffcharge>{
+
+	public ImpfstoffchargeDAO() {
+		super(Impfstoffcharge.class);
+	}
+	
+	public Impfstoffcharge findChargeByID(int ID) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		System.out.println("ID: "+ID);
+		parameters.put("ID", ID);
+		return super.findOneResult(Impfstoffcharge.FIND_BY_ID, parameters);
+	}
+	
+	public void reduceChargeByID(int ID) {
+		Impfstoffcharge aCharge = this.findChargeByID(ID);
+		aCharge.setAnzahl(aCharge.getAnzahl()-1);
+		super.save(aCharge);
+	}
+	
+	public List<ImpfstoffchargeTO> getSummedChargenByHersteller() {
+		
+		List<ImpfstoffchargeTO> chargenTOList = new ArrayList<ImpfstoffchargeTO>();
+		List<Impfstoffcharge> chargenList = new ArrayList<Impfstoffcharge>();
+		String[] hersteller = {"Biontech", "AstraZeneca", "Moderna"};
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		
+		for(int i=0; i < hersteller.length; i++) {
+			ImpfstoffchargeTO aChargeTO = new ImpfstoffchargeTO();
+			aChargeTO.setHersteller(hersteller[i]);
+			parameters.put("hersteller", hersteller[i]);
+			chargenList = super.findListResult(Impfstoffcharge.FIND_BY_HERSTELLER, parameters);
+			if(chargenList!=null) {
+				for (Impfstoffcharge aCharge:chargenList) {
+					aChargeTO.setAnzahl(aChargeTO.getAnzahl()+aCharge.getAnzahl());
+				}
+			} else {
+				aChargeTO.setAnzahl(0);
+			}
+			chargenTOList.add(aChargeTO);
+		}
+		return chargenTOList;
+	}
+	
+	public List<ImpfstoffchargeTO> getChargenByHerstellerAsTO(){
+		List<ImpfstoffchargeTO> chargenTOListe = new ArrayList<ImpfstoffchargeTO>();
+		List<Impfstoffcharge> chargenListe= super.findListResult(Impfstoffcharge.FIND_BY_HERSTELLER, null);
+		for(Impfstoffcharge aCharge:chargenListe) {
+			chargenTOListe.add(aCharge.toImpfstoffchargeTO());
+		}
+		return chargenTOListe;
+	}
+}

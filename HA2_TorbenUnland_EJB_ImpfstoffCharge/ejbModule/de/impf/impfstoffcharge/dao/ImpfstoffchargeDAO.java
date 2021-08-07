@@ -46,7 +46,7 @@ public class ImpfstoffchargeDAO extends GenericDAO<Impfstoffcharge>{
 		for(int i=0; i < hersteller.length; i++) {
 			ImpfstoffchargeTO aChargeTO = new ImpfstoffchargeTO();
 			aChargeTO.setHersteller(hersteller[i]);
-			parameters.put("hersteller", hersteller[i]);
+			parameters.put("hersteller", aChargeTO.getHersteller());
 			chargenList = super.findListResult(Impfstoffcharge.FIND_BY_HERSTELLER, parameters);
 			if(chargenList!=null) {
 				for (Impfstoffcharge aCharge:chargenList) {
@@ -56,10 +56,6 @@ public class ImpfstoffchargeDAO extends GenericDAO<Impfstoffcharge>{
 				aChargeTO.setAnzahl(0);
 			}
 			chargenTOList.add(aChargeTO);
-		}
-		
-		for(ImpfstoffchargeTO chargt:chargenTOList) {
-			System.out.println(chargt.getHersteller());
 		}
 		return chargenTOList;
 	}

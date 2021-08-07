@@ -21,7 +21,6 @@ import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 @Access(AccessType.FIELD)
 @Table(name="HA2_Impfstoffcharge")
 @NamedQuery(name="Impfstoffcharge.findByID", query="select i from Impfstoffcharge i where i.id = :id")
-@NamedQuery(name="Impfstoffcharge.getSummedChargenByHersteller", query="select i.hersteller, sum(i.anzahl) as MENGE from Impfstoffcharge i group by i.hersteller")
 @NamedQuery(name="Impfstoffcharge.findByHersteller", query="select i from Impfstoffcharge i where i.hersteller = :hersteller")
 public class Impfstoffcharge implements Serializable{
 	
@@ -30,7 +29,6 @@ public class Impfstoffcharge implements Serializable{
 	 */
 	private static final long serialVersionUID = 1646411299694852934L;
 	
-	public static final String GET_SUMMEDCHARGEN_BY_HERSTELLER = "Impfstoffcharge.getSummedChargenByHersteller";
 	public static final String FIND_BY_ID = "Impfstoffcharge.findByID";
 	public static final String FIND_BY_HERSTELLER = "Impfstoffcharge.findByHersteller";
 	
@@ -43,6 +41,9 @@ public class Impfstoffcharge implements Serializable{
 	private int anzahl;
 	private String hersteller;
 	private LocalDate datumAnlieferung;
+	
+	public Impfstoffcharge() {
+	}
 	
 	public Impfstoffcharge(int chargeID, int anzahl, String hersteller, LocalDate datumAnlieferung) {
 		this.chargeID = chargeID;
