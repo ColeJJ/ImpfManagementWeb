@@ -1,0 +1,45 @@
+package de.impf.termin.dao;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.ejb.Stateless;
+
+import de.impf.impfstoffcharge.entity.internal.Impfstoffcharge;
+import de.impf.termin.entity.TerminTO;
+import de.impf.termin.entity.internal.Termin;
+
+@Stateless
+public class TerminDAO extends GenericDAO<Termin>{
+	
+	private static final boolean NICHTWAHRGENOMMEN = false;
+
+	public TerminDAO() {
+		super(Termin.class);
+	}
+	
+	public List<TerminTO> getOpenTermine(){
+		List<TerminTO> terminTOListe = new ArrayList<TerminTO>();
+		Map<String,Object>parameters = new HashMap<String, Object>();
+		parameters.put("wahrgenommen", NICHTWAHRGENOMMEN);
+		List<Termin> terminListe =  super.findListResult(Termin.GET_OPEN_TERMINE, parameters);
+		for(Termin aTermin:terminListe) {
+			terminTOListe.add(aTermin.toTerminTO());
+		}
+		return terminTOListe;
+	}
+	
+	public Termin findChargeByID(int ID) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		System.out.println("ID: "+ID);
+		parameters.put("ID", ID);
+		return super.findOneResult(Termin.FIND_BY_ID, parameters);
+	}
+
+	public void setTerminWahrgenommen(int terminID) {
+		Termin aTermin = super.findOneResult(null, null)
+		
+	}
+}

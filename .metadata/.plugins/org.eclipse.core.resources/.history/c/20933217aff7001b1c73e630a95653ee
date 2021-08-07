@@ -1,0 +1,22 @@
+package de.impf.termin.dao;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.ejb.Stateless;
+
+import de.impf.termin.entity.internal.Impfung;
+
+@Stateless
+public class ImpfungDAO extends GenericDAO<Impfung>{
+
+	public ImpfungDAO() {
+		super(Impfung.class);
+	}
+	
+	public Impfung findChargeByID(int ID) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", ID);
+		return super.findOneResult(Impfstoffcharge.FIND_BY_ID, parameters);
+	}
+}

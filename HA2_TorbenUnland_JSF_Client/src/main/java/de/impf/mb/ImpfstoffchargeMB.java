@@ -47,6 +47,7 @@ public class ImpfstoffchargeMB implements Serializable{
 	public void initBean() {
 		this.aChargeTO = new ImpfstoffchargeTO();
 		this.herstellerListe = new ArrayList<ImpfstoffchargeTO>();
+		this.herstellerListe = anzeigeImpfdosenMengeFacade.anzeigeImpfdosenNachHersteller();
 	}
 	
 	private void sendInfoMessageToUser(String message){
@@ -99,6 +100,10 @@ public class ImpfstoffchargeMB implements Serializable{
 
 	public String vakzineVwAbbruchKlicked() {
 		return "BACK_TO_HAUPTMENUE";
+	}
+	
+	public String kundeListanzeigeAbbrechenClicked() {
+		return "VAKZINEVERWALTUNG_MENUE";
 	}
 
 	public ImpfstoffchargeTO getaChargeTO() {

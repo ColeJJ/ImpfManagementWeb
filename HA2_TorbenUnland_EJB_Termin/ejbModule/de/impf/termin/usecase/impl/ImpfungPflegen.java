@@ -1,5 +1,8 @@
 package de.impf.termin.usecase.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -19,6 +22,27 @@ public class ImpfungPflegen implements IImpfungPflegen{
 		Impfung aImpfung = aImpfungTO.toImpfung();
 		impfDAO.save(aImpfung);	
 	}
+	
+	@Override
+	public void impfungUpdaten(ImpfungTO aImpfungTO) {
+		Impfung aImpf = impfDAO.find(aImpfungTO.getImpfungID());
+		aImpf.setUhrzeit(aImpfungTO.getUhrzeit());
+		aImpf.setDatum(aImpfungTO.toImpfung().getDatum());
+		aImpf.setBemerkung(aImpfungTO.getBemerkung());
+		aImpf.setImpfdatum(aImpfungTO.getImpfdatum()!=null ? aImpfungTO.toImpfung().getImpfdatum():null);
+		aImpf.setTerminID(aImpfungTO.getTerminID());
+		aImpf.setImpfungID(aImpfungTO.getImpfungID());
+		aImpf.setUsedChargeID(aImpfungTO.getUsedChargeID());
+		impfDAO.update(aImpf);
+	}
 
-
+	@Override
+	public List<ImpfungTO> getAllImpfungen() {
+		List<ImpfungTO> impfTOListe = new ArrayList<ImpfungTO>();
+		List<Impfung> impfListe = impfDAO.findAll();
+		for(Impfung aImpf:impfListe) {
+			impfTOListe.add(aImpf.toImpfungTO());
+		}
+		return impfTOListe;
+	}
 }

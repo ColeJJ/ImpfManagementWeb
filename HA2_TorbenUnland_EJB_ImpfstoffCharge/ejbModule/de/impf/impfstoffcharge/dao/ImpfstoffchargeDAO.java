@@ -24,15 +24,16 @@ public class ImpfstoffchargeDAO extends GenericDAO<Impfstoffcharge>{
 	
 	public Impfstoffcharge findChargeByID(int ID) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		System.out.println("ID: "+ID);
-		parameters.put("ID", ID);
+		parameters.put("id", ID);
 		return super.findOneResult(Impfstoffcharge.FIND_BY_ID, parameters);
 	}
 	
 	public void reduceChargeByID(int ID) {
 		Impfstoffcharge aCharge = this.findChargeByID(ID);
-		aCharge.setAnzahl(aCharge.getAnzahl()-1);
-		super.save(aCharge);
+		if(aCharge!=null) {
+			aCharge.setAnzahl(aCharge.getAnzahl()-1);
+			super.save(aCharge);
+		}
 	}
 	
 	public List<ImpfstoffchargeTO> getSummedChargenByHersteller() {

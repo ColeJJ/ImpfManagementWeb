@@ -1,0 +1,48 @@
+package de.impf.termin.usecase.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import de.impf.termin.dao.ImpfungDAO;
+import de.impf.termin.entity.ImpfungTO;
+import de.impf.termin.entity.internal.Impfung;
+import de.impf.termin.usecase.IImpfungPflegen;
+
+@Stateless
+public class ImpfungPflegen implements IImpfungPflegen{
+
+	@Inject
+	ImpfungDAO impfDAO;
+	
+	@Override
+	public void impfungAnlegen(ImpfungTO aImpfungTO) {
+		Impfung aImpfung = aImpfungTO.toImpfung();
+		impfDAO.save(aImpfung);	
+	}
+	
+	@Override
+	public void impfungUpdaten(ImpfungTO aImpfungTO) {
+		Impfung aImpf = impfDAO.find(aImpfungTO.getChargeID());
+		//aImpf.setDatum(aImpfungTO.toImpfung().getDatum());
+		aImpf.setUhrzeit(aImpfungTO.getUhrzeit());
+		aImpf.setBemerkung(aImpfungTO.getBemerkung());
+		aImpf.setImpfdatum(aImpfungTO.getImpfdatum()!=null ? aImpfungTO.toImpfung().getImpfdatum():null);
+		aImpf.setTerminID(aImpfungTO.getTerminID());
+		aImpf.setImpfungID(aImpfungTO.getImpfungID());
+		aImpf.setUsedChargeID(aImpfungTO.getUsedChargeID());
+		impfDAO.update(aImpf);
+	}
+
+	@Override
+	public List<ImpfungTO> getAllImpfungen() {
+		List<ImpfungTO> impfTOListe = new ArrayList<ImpfungTO>();
+		List<Impfung> impfListe = impfDAO.findAll();
+		for(Impfung aImpf:impfListe) {
+			impfTOListe.add(aImpf.toImpfungTO());
+		}
+		return impfTOListe;
+	}
+}

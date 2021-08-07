@@ -1,0 +1,14 @@
+package de.impf.impfstoffcharge.usecase;
+
+import java.util.Collection;
+
+import javax.ejb.Local;
+
+import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
+
+@Local
+public interface IChargeSuchen {
+	
+	public Lisr<ImpfstoffchargeTO> getChargenByHersteller(String hersteller);
+	public List<ImpfstoffchargeTO> getAllChargen();
+}

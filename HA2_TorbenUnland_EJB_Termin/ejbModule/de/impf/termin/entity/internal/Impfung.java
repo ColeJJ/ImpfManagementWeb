@@ -1,6 +1,8 @@
 package de.impf.termin.entity.internal;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,7 +20,10 @@ import de.impf.termin.entity.ImpfungTO;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name="HA2_Impfungen")
+@NamedQuery(name="Impfung.findByID", query="select i from Impfung i where i.impfungID = :id")
 public class Impfung {
+	
+	public static final String FIND_BY_ID = "Impfung.findByID";
 
 	//Variablen
 	@Id
@@ -28,8 +34,14 @@ public class Impfung {
 	private LocalDate datum;
 	private String uhrzeit;
 	private String bemerkung;
+	private LocalDate impfdatum;
 	private int terminID;
 	private int chargeID;
+	private int usedChargeID;
+	
+	//Konstruktoren
+	public Impfung() {
+	}
 	
 	public Impfung(int impfungID, LocalDate datum, String uhrzeit, String bemerkung, int terminID, int chargeID) {
 		this.impfungID = impfungID;
@@ -38,6 +50,17 @@ public class Impfung {
 		this.bemerkung = bemerkung;
 		this.terminID = terminID;
 		this.chargeID = chargeID;
+	}
+	
+	public Impfung(int impfungID, LocalDate datum, String uhrzeit, String bemerkung, LocalDate impfdatum, int terminID, int chargeID, int usedChargeID) {
+		this.impfungID = impfungID;
+		this.datum = datum;
+		this.uhrzeit = uhrzeit;
+		this.bemerkung = bemerkung;
+		this.impfdatum = impfdatum;
+		this.terminID = terminID;
+		this.chargeID = chargeID;
+		this.usedChargeID = usedChargeID;
 	}
 	
 	public Impfung(LocalDate datum, String uhrzeit, String bemerkung, int terminID, int chargeID) {
@@ -49,13 +72,19 @@ public class Impfung {
 	}
 	
 	public ImpfungTO toImpfungTO() {
+		
+		//Set Pattern for convertion of LocalDate to String
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		
 		ImpfungTO aImpfungTO = new ImpfungTO();
 		aImpfungTO.setImpfungID(this.impfungID);
-		aImpfungTO.setDatum(this.datum);
+		aImpfungTO.setDatum(this.datum.format(formatter));
 		aImpfungTO.setUhrzeit(this.uhrzeit);
 		aImpfungTO.setBemerkung(this.bemerkung);
+		aImpfungTO.setImpfdatum(this.getImpfdatum()!=null ? this.impfdatum.format(formatter):null);
 		aImpfungTO.setTerminID(this.terminID);
 		aImpfungTO.setChargeID(this.chargeID);
+		aImpfungTO.setUsedChargeID(this.usedChargeID);
 		return aImpfungTO;
 	}
 	
@@ -95,6 +124,22 @@ public class Impfung {
 	}
 	public void setChargeID(int chargeID) {
 		this.chargeID = chargeID;
+	}
+
+	public LocalDate getImpfdatum() {
+		return impfdatum;
+	}
+
+	public void setImpfdatum(LocalDate impfdatum) {
+		this.impfdatum = impfdatum;
+	}
+
+	public int getUsedChargeID() {
+		return usedChargeID;
+	}
+
+	public void setUsedChargeID(int usedChargeID) {
+		this.usedChargeID = usedChargeID;
 	}
 	
 	

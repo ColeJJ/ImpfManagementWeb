@@ -13,7 +13,8 @@ import de.impf.termin.entity.internal.Termin;
 @Stateless
 public class TerminDAO extends GenericDAO<Termin>{
 	
-	private static final int NICHTWAHRGENOMMEN = 0;
+	private static final boolean NICHTWAHRGENOMMEN = false;
+	private static final boolean WAHRGENOMMEN = true;
 
 	public TerminDAO() {
 		super(Termin.class);
@@ -22,11 +23,23 @@ public class TerminDAO extends GenericDAO<Termin>{
 	public List<TerminTO> getOpenTermine(){
 		List<TerminTO> terminTOListe = new ArrayList<TerminTO>();
 		Map<String,Object>parameters = new HashMap<String, Object>();
-		parameters.put("iswahrgenommen", NICHTWAHRGENOMMEN);
+		parameters.put("wahrgenommen", NICHTWAHRGENOMMEN);
 		List<Termin> terminListe =  super.findListResult(Termin.GET_OPEN_TERMINE, parameters);
 		for(Termin aTermin:terminListe) {
 			terminTOListe.add(aTermin.toTerminTO());
 		}
 		return terminTOListe;
+	}
+	
+	public Termin findTerminByID(int ID) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", ID);
+		return super.findOneResult(Termin.FIND_BY_ID, parameters);
+	}
+
+	public void setTerminWahrgenommen(int terminID) {
+		Termin aTermin = this.findTerminByID(terminID);
+		aTermin.setWahrgenommen(WAHRGENOMMEN);
+		super.save(aTermin);
 	}
 }

@@ -39,6 +39,9 @@ public class Patient {
 	private String telefonNr;
 	
 	//Konstruktor
+	public Patient() {
+	}
+	
 	public Patient(int patientenID, String name, String vorname, LocalDate geburtsdatum, String mail, String telefonNr) {
 		this.patientenID = patientenID;
 		this.name = name;

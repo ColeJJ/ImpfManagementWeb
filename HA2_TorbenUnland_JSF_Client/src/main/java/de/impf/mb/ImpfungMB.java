@@ -1,14 +1,25 @@
 package de.impf.mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
+import de.impf.impfstoffcharge.usecase.IChargeErfassen;
+import de.impf.impfstoffcharge.usecase.IChargeSuchen;
 import de.impf.termin.entity.ImpfungTO;
+import de.impf.termin.entity.TerminTO;
 import de.impf.termin.usecase.IImpfungPflegen;
+import de.impf.termin.usecase.ITerminePflegen;
+import de.impf.termin.usecase.ITermineSuchen;
 
 @Named("ImpfungMB")
 @RequestScoped
@@ -22,15 +33,84 @@ public class ImpfungMB implements Serializable{
 	@Inject 
 	IImpfungPflegen impfungPflegenFacade;
 	
+	@Inject
+	ITermineSuchen termineSuchenFacade;
+	
+	@Inject
+	ITerminePflegen terminePflegenFacade;
+	
+	@Inject
+	IChargeSuchen chargeSuchenFacade;
+	
+	@Inject
+	IChargeErfassen chargeErfassenFacade;
+	
 	//Variablen
 	private ImpfungTO aImpfungTO;
+	private List<TerminTO> termine;
+	private List<ImpfstoffchargeTO> chargen;
+	private List<ImpfungTO> impfungen;
 	
 	public ImpfungMB() {
 	}
 	
 	@PostConstruct
 	public void initBean() {
-		this.aImpfungTO = null;
+		this.aImpfungTO = new ImpfungTO();
+		this.termine = new ArrayList<TerminTO>();
+		this.chargen = new ArrayList<ImpfstoffchargeTO>();
+		this.impfungen = new ArrayList<ImpfungTO>();
+		this.termine = termineSuchenFacade.getAllOpenTermine();
+		this.chargen = chargeSuchenFacade.getAllChargen();
+		this.impfungen = impfungPflegenFacade.getAllImpfungen();
+	}
+	
+	private void sendInfoMessageToUser(String message){
+		FacesContext context = getContext();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
+	}
+	
+	private void sendErrorMessageToUser(String message){
+		FacesContext context = getContext();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message));
+	}
+	
+	private FacesContext getContext() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		return context;
+	}
+	
+	public String impfungAnlegen() {
+		try {
+			impfungPflegenFacade.impfungAnlegen(this.aImpfungTO);
+			terminePflegenFacade.setTerminWahrgenommen(this.aImpfungTO.getTerminID());
+			sendInfoMessageToUser("Impfung angelegt");
+			return "ANZEIGE_IMPFDOSENMENGE_ABBRECHEN";
+		} catch (EJBException e) {
+			sendErrorMessageToUser("Kann die Impfung nicht anlegen.");
+			return "";
+		}	
+	}
+	
+	public String impfungUpdaten() {
+		try {
+			impfungPflegenFacade.impfungUpdaten(this.aImpfungTO);
+			chargeErfassenFacade.reduceCharge(this.aImpfungTO.getChargeID());
+			sendInfoMessageToUser("Impfung aktualisiert");
+			return "UPDATE_IMPFUNG_ABBRECHEN";
+		} catch (EJBException e) {
+			sendErrorMessageToUser("Die Impfung konnte nicht aktualisiert werden.");
+			return "";
+		}	
+	}
+	
+	public void ladeTermineAndChargen() {		
+		this.termine = termineSuchenFacade.getAllOpenTermine();
+		this.chargen = chargeSuchenFacade.getAllChargen();
+	}
+	
+	public void ladeImpfungen() {
+		this.impfungen = impfungPflegenFacade.getAllImpfungen();
 	}
 	
 	//Navigation
@@ -48,6 +128,47 @@ public class ImpfungMB implements Serializable{
 
 	public String vakzineVwAbbruchKlicked() {
 		return "BACK_TO_HAUPTMENUE";
+	}
+
+	public String impfungPflegenAbbruchKlicked() {
+		return "IMPFUNG_PFLEGEN_ABBRECHEN";
+	}
+		
+	public String updateImpfungStart() {
+		return "UPDATE_IMPFUNG";
+	}
+	
+	//Getters and Setters
+	public ImpfungTO getaImpfungTO() {
+		return aImpfungTO;
+	}
+
+	public void setaImpfungTO(ImpfungTO aImpfungTO) {
+		this.aImpfungTO = aImpfungTO;
+	}
+
+	public List<TerminTO> getTermine() {
+		return termine;
+	}
+
+	public void setTermine(List<TerminTO> termine) {
+		this.termine = termine;
+	}
+
+	public List<ImpfstoffchargeTO> getChargen() {
+		return chargen;
+	}
+
+	public void setChargen(List<ImpfstoffchargeTO> chargen) {
+		this.chargen = chargen;
+	}
+
+	public List<ImpfungTO> getImpfungen() {
+		return impfungen;
+	}
+
+	public void setImpfungen(List<ImpfungTO> impfungen) {
+		this.impfungen = impfungen;
 	}
 
 }

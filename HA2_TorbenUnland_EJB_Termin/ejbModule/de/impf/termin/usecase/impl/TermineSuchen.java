@@ -1,6 +1,6 @@
 package de.impf.termin.usecase.impl;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -16,8 +16,8 @@ public class TermineSuchen implements ITermineSuchen{
 	TerminDAO terminDAO;
 
 	@Override
-	public Collection<TerminTO> getAllOpenTermine() {
-		return (Collection <TerminTO>) terminDAO.getOpenTermine();
+	public List<TerminTO> getAllOpenTermine() {
+		return (List <TerminTO>) terminDAO.getOpenTermine();
 	}
 
 }

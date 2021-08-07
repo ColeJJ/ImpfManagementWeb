@@ -20,7 +20,7 @@ import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name="HA2_Impfstoffcharge")
-@NamedQuery(name="Impfstoffcharge.findByID", query="select i from Impfstoffcharge i where i.id = :id")
+@NamedQuery(name="Impfstoffcharge.findByID", query="select i from Impfstoffcharge i where i.chargeID = :id")
 @NamedQuery(name="Impfstoffcharge.findByHersteller", query="select i from Impfstoffcharge i where i.hersteller = :hersteller")
 public class Impfstoffcharge implements Serializable{
 	

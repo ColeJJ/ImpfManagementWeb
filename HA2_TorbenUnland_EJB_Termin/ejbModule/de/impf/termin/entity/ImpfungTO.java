@@ -1,6 +1,8 @@
 package de.impf.termin.entity;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import de.impf.termin.entity.internal.Impfung;
 
@@ -8,20 +10,29 @@ public class ImpfungTO {
 	
 	//Eigenschaften
 	private int impfungID;
-	private LocalDate datum;
+	private String datum;
 	private String uhrzeit;
 	private String bemerkung;
+	private String impfdatum;
 	private int terminID;
 	private int chargeID;
+	private int usedChargeID;
 	
 	public Impfung toImpfung() {
+		//Convert String to LocalDate
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		LocalDate date = LocalDate.parse(this.getDatum(), formatter);
+		LocalDate dateImpf = this.getImpfdatum()!=null ? LocalDate.parse(this.getImpfdatum(), formatter) : null;
+		
 		Impfung aImpfung = new Impfung(
 				this.impfungID,
-				this.datum,
+				date,
 				this.uhrzeit,
 				this.bemerkung,
+				dateImpf,
 				this.terminID,
-				this.chargeID);
+				this.chargeID,
+				this.usedChargeID);
 		return aImpfung;
 	}
 	
@@ -31,10 +42,10 @@ public class ImpfungTO {
 	public void setImpfungID(int impfungID) {
 		this.impfungID = impfungID;
 	}
-	public LocalDate getDatum() {
+	public String getDatum() {
 		return datum;
 	}
-	public void setDatum(LocalDate datum) {
+	public void setDatum(String datum) {
 		this.datum = datum;
 	}
 	public String getUhrzeit() {
@@ -60,6 +71,22 @@ public class ImpfungTO {
 	}
 	public void setChargeID(int chargeID) {
 		this.chargeID = chargeID;
+	}
+
+	public String getImpfdatum() {
+		return impfdatum;
+	}
+
+	public void setImpfdatum(String impfdatum) {
+		this.impfdatum = impfdatum;
+	}
+
+	public int getUsedChargeID() {
+		return usedChargeID;
+	}
+
+	public void setUsedChargeID(int usedChargeID) {
+		this.usedChargeID = usedChargeID;
 	}
 	
 	

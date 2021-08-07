@@ -1,0 +1,94 @@
+package de.impf.termin.entity;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
+import de.impf.termin.entity.internal.Impfung;
+
+public class ImpfungTO {
+	
+	//Eigenschaften
+	private int impfungID;
+	private String datum;
+	private String uhrzeit;
+	private String bemerkung;
+	private String impfdatum;
+	private int terminID;
+	private int chargeID;
+	private int usedChargeID;
+	
+	public Impfung toImpfung() {
+		//Convert String to LocalDate
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		LocalDate date = LocalDate.parse(this.getDatum(), formatter);
+		LocalDate dateImpf = LocalDate.parse(this.getImpfdatum(), formatter);
+		
+		Impfung aImpfung = new Impfung(
+				this.impfungID,
+				date,
+				this.uhrzeit,
+				this.bemerkung,
+				this.impfdatum,
+				this.terminID,
+				this.chargeID,
+				this.usedChargeID);
+		return aImpfung;
+	}
+	
+	public int getImpfungID() {
+		return impfungID;
+	}
+	public void setImpfungID(int impfungID) {
+		this.impfungID = impfungID;
+	}
+	public String getDatum() {
+		return datum;
+	}
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
+	public String getUhrzeit() {
+		return uhrzeit;
+	}
+	public void setUhrzeit(String uhrzeit) {
+		this.uhrzeit = uhrzeit;
+	}
+	public String getBemerkung() {
+		return bemerkung;
+	}
+	public void setBemerkung(String bemerkung) {
+		this.bemerkung = bemerkung;
+	}
+	public int getTerminID() {
+		return terminID;
+	}
+	public void setTerminID(int terminID) {
+		this.terminID = terminID;
+	}
+	public int getChargeID() {
+		return chargeID;
+	}
+	public void setChargeID(int chargeID) {
+		this.chargeID = chargeID;
+	}
+
+	public String getImpfdatum() {
+		return impfdatum;
+	}
+
+	public void setImpfdatum(String impfdatum) {
+		this.impfdatum = impfdatum;
+	}
+
+	public int getUsedChargeID() {
+		return usedChargeID;
+	}
+
+	public void setUsedChargeID(int usedChargeID) {
+		this.usedChargeID = usedChargeID;
+	}
+	
+	
+
+}

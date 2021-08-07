@@ -22,11 +22,18 @@
              <br />
              <h:commandButton 
             			value="Impfung anlegen" 
-            			action="#{terminMB.starteImpfungAnlegenn}"
+            			action="#{terminMB.starteImpfungAnlegen}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
              <br />
+              <h:commandButton 
+             			value="Impftermine ansehen" 
+             			action="#{terminMB.starteImpfterminAnsicht}"
+             			style=" width: 200px">
+                <f:ajax execute="@form" render="@form" />
+            </h:commandButton>
+            <br />
             <h:commandButton 
              			value="Abbruch" 
              			action="#{terminMB.terminVwAbbruchKlicked()}"

@@ -2,6 +2,8 @@ package de.impf.termin.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import de.impf.termin.entity.internal.Termin;
 
@@ -14,7 +16,7 @@ public class TerminTO implements Serializable{
 	
 	//Eigenschaften
 	private int terminID;
-	private LocalDate datum;
+	private String datum;
 	private String uhrzeit;
 	private int patientID;
 	private boolean wahrgenommen;
@@ -25,9 +27,13 @@ public class TerminTO implements Serializable{
 	
 	//Terminobjekt erzeugen
 	public Termin toTermin() {
+		//Convert String to LocalDate
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		LocalDate date = LocalDate.parse(this.getDatum(), formatter);
+		
 		Termin aTermin = new Termin(
 				this.getTerminID(),
-				this.getDatum(),
+				date,
 				this.getUhrzeit(),
 				this.getPatientID(),
 				this.isWahrgenommen());
@@ -42,11 +48,11 @@ public class TerminTO implements Serializable{
 		this.terminID = terminID;
 	}
 
-	public LocalDate getDatum() {
+	public String getDatum() {
 		return datum;
 	}
 
-	public void setDatum(LocalDate datum) {
+	public void setDatum(String datum) {
 		this.datum = datum;
 	}
 

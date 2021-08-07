@@ -1,6 +1,8 @@
 package de.impf.termin.entity.internal;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -17,9 +19,11 @@ import de.impf.termin.entity.TerminTO;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name="HA2_Termine")
+@NamedQuery(name="Termin.findByID", query="select t from Termin t where t.terminID = :id")
 @NamedQuery(name="Termin.getOpenTermine", query="select t from Termin t where t.wahrgenommen = :wahrgenommen")
 public class Termin {
 	
+	public static final String FIND_BY_ID = "Termin.findByID";
 	public static final String GET_OPEN_TERMINE = "Termin.getOpenTermine";
 	
 	//Variablen
@@ -34,6 +38,9 @@ public class Termin {
 	private boolean wahrgenommen;
 	
 	//Konstruktoren
+	public Termin() {
+	}
+	
 	public Termin(int terminID, LocalDate datum, String uhrzeit, int patientID, boolean wahrgenommen) {
 		this.terminID = terminID;
 		this.datum = datum;
@@ -50,9 +57,13 @@ public class Termin {
 	
 	//Transportobjekt erzeugen
 	public TerminTO toTerminTO() {
+		
+		//Set Pattern for convertion of LocalDate to String
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+				
 		TerminTO aTerminTO = new TerminTO();
 		aTerminTO.setTerminID(this.getTerminID());
-		aTerminTO.setDatum(this.getDatum());
+		aTerminTO.setDatum(this.getDatum().format(formatter));
 		aTerminTO.setUhrzeit(this.getUhrzeit());
 		aTerminTO.setPatientID(this.getPatientID());
 		aTerminTO.setWahrgenommen(this.isWahrgenommen());

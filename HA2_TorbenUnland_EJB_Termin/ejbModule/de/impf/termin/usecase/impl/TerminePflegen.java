@@ -19,4 +19,9 @@ public class TerminePflegen implements ITerminePflegen{
 		Termin aTermin = aTerminTO.toTermin();
 		terminDAO.save(aTermin);		
 	}
+
+	@Override
+	public void setTerminWahrgenommen(int terminID) {
+		terminDAO.setTerminWahrgenommen(terminID);
+	}
 }

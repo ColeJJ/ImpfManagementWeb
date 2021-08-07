@@ -1,5 +1,8 @@
 package de.impf.termin.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.ejb.Stateless;
 
 import de.impf.termin.entity.internal.Impfung;
@@ -11,5 +14,9 @@ public class ImpfungDAO extends GenericDAO<Impfung>{
 		super(Impfung.class);
 	}
 	
-	
+	public Impfung findImpfungByID(int ID) {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("id", ID);
+		return super.findOneResult(Impfung.FIND_BY_ID, parameters);
+	}
 }

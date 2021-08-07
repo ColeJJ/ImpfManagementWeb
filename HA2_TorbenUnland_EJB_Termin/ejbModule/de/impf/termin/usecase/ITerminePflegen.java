@@ -9,4 +9,5 @@ import de.impf.termin.entity.TerminTO;
 public interface ITerminePflegen {
 
 	public void terminAnlegen(TerminTO aTerminTO);
+	public void setTerminWahrgenommen(int terminID);
 }
