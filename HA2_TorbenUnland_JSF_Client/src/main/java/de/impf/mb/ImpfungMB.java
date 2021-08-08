@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.security.enterprise.SecurityContext;
 
 import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 import de.impf.impfstoffcharge.usecase.IChargeErfassen;
@@ -25,6 +27,10 @@ import de.impf.termin.usecase.ITermineSuchen;
 @RequestScoped
 public class ImpfungMB implements Serializable{
 
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	SecurityContext securityContext;
+	
 	/**
 	 * 
 	 */
@@ -118,12 +124,26 @@ public class ImpfungMB implements Serializable{
 		return "VAKZINEVERWALTUNG_MENUE";
 	}
 	
-	public String starteChargeErfassen() {
-		return "IMPFCHARGE_ERFASSEN";
+	@RolesAllowed("ARZT")
+	public String starteImpfungErfassen() {
+		if (securityContext.isCallerInRole("ARZT")) {
+			System.out.println("Anzeigen Impfung erfassen");
+			return "IMPFUNG_PFLEGEN";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen von Impfung erfassen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 	
+	@RolesAllowed("ARZT")
 	public String starteAnzeigeImpfdosenMenge() {
-		return "ANZEIGE_IMPFDOSENMENGE";
+		if (securityContext.isCallerInRole("ARZT")) {
+			System.out.println("Anzeigen Impfdosenmenge");
+			return "ANZEIGE_IMPFDOSENMENGE";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen der Impfdosenmengen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 
 	public String vakzineVwAbbruchKlicked() {
@@ -133,9 +153,24 @@ public class ImpfungMB implements Serializable{
 	public String impfungPflegenAbbruchKlicked() {
 		return "IMPFUNG_PFLEGEN_ABBRECHEN";
 	}
-		
+	
+	public String impfungListanzeigeAbbruchClicked() {
+		return "ANSICHT_IMPFUNG_ABBRECHEN";
+	}
+	
+	@RolesAllowed("ARZT")
 	public String updateImpfungStart() {
-		return "UPDATE_IMPFUNG";
+		if (securityContext.isCallerInRole("ARZT")) {
+			System.out.println("Anzeigen Update Impfung");
+			return "UPDATE_IMPFUNG";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen von Update Impfung");
+			return "STAY_ON_PAGE";	
+		}
+	}
+	
+	public String impfungUpdateAbbruchKlicked() {
+		return "UPDATE_IMPFUNG_ABBRECHEN";
 	}
 	
 	//Getters and Setters

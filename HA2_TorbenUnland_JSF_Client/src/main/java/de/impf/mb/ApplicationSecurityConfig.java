@@ -11,10 +11,9 @@ import javax.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
                 loginPage = "/pages/public/login.xhtml",
                 errorPage = "/pages/public/loginError.xhtml"))
 @DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "java:/l4asrv-oracle",
-//		dataSourceLookup = "java:/MySQL_VS",
-        callerQuery = "select PASSWORD from t_user where USERNAME=?",
-        groupsQuery = "select ROLENAME as GROUPNAME from t_user_roles where USERNAME=?",
+        dataSourceLookup = "java:/OracleDS",
+        callerQuery = "select PASSWORD from HA2_user where USERNAME=?",
+        groupsQuery = "select ROLENAME as GROUPNAME from HA2_user_roles where USERNAME=?",
 //        hashAlgorithm = PlainTextPasswordHash.class
         hashAlgorithm = PlainSHA512PasswordHash.class
 //        , useFor = IdentityStore.ValidationType.PROVIDE_GROUPS

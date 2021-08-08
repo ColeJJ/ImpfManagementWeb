@@ -11,7 +11,11 @@
     <h:body>
         <h:form>
             <h3>Hauptmen&uuml; Vakzineverwaltung</h3>
-
+			<br/> 
+        	<h:outputText value="Welcome #{userMB.user.username}" /> || 
+			<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+				<f:ajax execute="@form" render="@form" />
+			</h:commandLink>
             <br/> <br/>
             <h:commandButton 
             			value="Impfstoffcharge erfassen" 
@@ -19,7 +23,7 @@
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
-            <br />
+            <br /> 
             <h:commandButton 
             			value="Anzeige Impfdosenmenge" 
             			action="#{impfstoffchargeMB.starteAnzeigeImpfdosenMenge()}"

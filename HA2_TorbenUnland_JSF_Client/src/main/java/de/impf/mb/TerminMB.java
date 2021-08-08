@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.security.enterprise.SecurityContext;
 
 import de.impf.patient.entity.PatientTO;
 import de.impf.patient.usecase.IPatientenPflegen;
@@ -22,6 +24,10 @@ import de.impf.termin.usecase.ITermineSuchen;
 @RequestScoped
 public class TerminMB implements Serializable{
 
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	SecurityContext securityContext;
+	
 	/**
 	 * 
 	 */
@@ -86,12 +92,26 @@ public class TerminMB implements Serializable{
 		return "TERMINEVERWALTUNG_MENUE";
 	}
 	
+	@RolesAllowed("ARZT")
 	public String starteTerminAnlegen() {
-		return "TERMINE_PFLEGEN";
+		if (securityContext.isCallerInRole("ARZT")) {
+			System.out.println("Anzeigen Termin pflegen");
+			return "TERMINE_PFLEGEN";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen von Termin pflegen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 	
+	@RolesAllowed("ARZT")
 	public String starteImpfungAnlegen() {
-		return "IMPFUNG_PFLEGEN";
+		if (securityContext.isCallerInRole("ARZT")) {
+			System.out.println("Anzeigen Impfung pflegen");
+			return "IMPFUNG_PFLEGEN";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen von Impfung pflegen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 
 	public String terminVwAbbruchKlicked() {
@@ -102,8 +122,15 @@ public class TerminMB implements Serializable{
 		return "TERMINE_PFLEGEN_ABBRECHEN";
 	}
 	
+	@RolesAllowed("ARZT")
 	public String starteImpfterminAnsicht() {
-		return "IMPFTERMINE_ANSEHEN";
+		if (securityContext.isCallerInRole("ARZT")) {
+			System.out.println("Anzeigen Impfungen");
+			return "IMPFTERMINE_ANSEHEN";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen der Impfungen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 
 	public TerminTO getaTerminTO() {

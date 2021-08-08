@@ -11,6 +11,12 @@
 
 <h:body>
    <h3>Impftermine Ansicht</h3>
+   <br/> 
+    <h:outputText value="Welcome #{userMB.user.username}" /> || 
+	<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+		<f:ajax execute="@form" render="@form" />
+	</h:commandLink>
+	<br/> <br/>
  	<h:form id = "impftermineAnsichtForm">
  	<h:dataTable 
  			value="#{impfungMB.impfungen }" 

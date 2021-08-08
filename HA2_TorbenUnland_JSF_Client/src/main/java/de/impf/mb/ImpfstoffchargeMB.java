@@ -2,16 +2,17 @@ package de.impf.mb;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.security.enterprise.SecurityContext;
 
 import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 import de.impf.impfstoffcharge.usecase.IAnzeigeImpfdosenMenge;
@@ -22,6 +23,10 @@ import de.impf.impfstoffcharge.usecase.IChargeSuchen;
 @RequestScoped
 public class ImpfstoffchargeMB implements Serializable{
 
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	SecurityContext securityContext;
+	
 	/**
 	 * 
 	 */
@@ -39,7 +44,16 @@ public class ImpfstoffchargeMB implements Serializable{
 	//Variablen
 	private ImpfstoffchargeTO aChargeTO;
 	private List<ImpfstoffchargeTO> herstellerListe;
+	private String[] hersteller = {"Biontech", "AstraZeneca", "Moderna"};
 	
+	public String[] getHersteller() {
+		return hersteller;
+	}
+
+	public void setHersteller(String[] hersteller) {
+		this.hersteller = hersteller;
+	}
+
 	public ImpfstoffchargeMB() {
 	}
 	
@@ -86,24 +100,38 @@ public class ImpfstoffchargeMB implements Serializable{
 		return "VAKZINEVERWALTUNG_MENUE";
 	}
 	
-	public String chargeErfassenAbbrechenClicked() {
+	public String chargeErfassenAbbruchKlicked() {
 		return "IMPFSTOFFCHARGE_ERFASSEN_ABBRECHEN";
 	}
 	
+	@RolesAllowed("MATERIALMANAGER")
 	public String starteChargeErfassen() {
-		return "IMPFCHARGE_ERFASSEN";
+		if (securityContext.isCallerInRole("MATERIALMANAGER")) {
+			System.out.println("Anzeigen Charge erfassen");
+			return "IMPFCHARGE_ERFASSEN";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen von Charge erfassen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 	
+	@RolesAllowed("MATERIALMANAGER")
 	public String starteAnzeigeImpfdosenMenge() {
-		return "ANZEIGE_IMPFDOSENMENGE";
+		if (securityContext.isCallerInRole("MATERIALMANAGER")) {
+			System.out.println("Anzeigen Impfdosenmenge");
+			return "ANZEIGE_IMPFDOSENMENGE";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen der Impfdosenmengen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 
 	public String vakzineVwAbbruchKlicked() {
 		return "BACK_TO_HAUPTMENUE";
 	}
 	
-	public String kundeListanzeigeAbbrechenClicked() {
-		return "VAKZINEVERWALTUNG_MENUE";
+	public String chargeListeAbbruchKlicked() {
+		return "ANZEIGE_IMPFDOSENMENGE_ABBRECHEN";
 	}
 
 	public ImpfstoffchargeTO getaChargeTO() {

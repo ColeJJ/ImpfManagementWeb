@@ -7,6 +7,7 @@
 		<project>HA2_TorbenUnland_EJB_Termin</project>
 		<project>HA2_TorbenUnland_EJB_ImpfstoffCharge</project>
 		<project>HA2_TorbenUnland_EJB_Patient</project>
+		<project>HA2_TorbenUnland_EJB_Security</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -15,8 +15,12 @@
 	<h:form id="chargeTestForm">
 		<h:messages />
 		<h3>Impfstoffcharge erfassen</h3>
-
-		<br/>
+		<br/> 
+        <h:outputText value="Welcome #{userMB.user.username}" /> || 
+		<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+			<f:ajax execute="@form" render="@form" />
+		</h:commandLink>
+		<br/> <br/>
 		
 		<h:panelGroup id="impfstoffcharge">
 			<h:panelGrid columns="2">
@@ -25,7 +29,9 @@
 						<f:convertNumber integerOnly="true"/>
 					</h:inputText>
 					<h:outputLabel value="Hersteller" />
-					<h:inputText value="#{impfstoffchargeMB.aChargeTO.hersteller}" />
+					<h:selectOneMenu value="#{impfstoffchargeMB.aChargeTO.hersteller}">
+    					<f:selectItems value="#{impfstoffchargeMB.hersteller}" />
+					</h:selectOneMenu>
 					<h:outputLabel value="Lieferdatum" />
 					<h:inputText value="#{impfstoffchargeMB.aChargeTO.datumAnlieferung}"></h:inputText>
 			</h:panelGrid>
@@ -39,7 +45,7 @@
 	</h:form>
 	<h:form>
 	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
-		<h:commandButton value="Abbruch" action="#{impfstoffchargeMB.chargeErfassenAbbrechenClicked()}" style=" width: 200px" />
+		<h:commandButton value="Abbruch" action="#{impfstoffchargeMB.chargeErfassenAbbruchKlicked()}" style=" width: 200px" />
 	</h:form>
 	
 	<br />

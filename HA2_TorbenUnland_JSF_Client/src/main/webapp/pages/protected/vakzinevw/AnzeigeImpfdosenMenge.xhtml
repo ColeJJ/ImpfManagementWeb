@@ -10,7 +10,13 @@
 </h:head>	
 
 <h:body>
-   <h3>Menge der Impfdosen nach Hersteller</h3>
+  	<h3>Menge der Impfdosen nach Hersteller</h3>
+  	<br/> 
+  	<h:outputText value="Welcome #{userMB.user.username}" /> || 
+  	<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+		<f:ajax execute="@form" render="@form" />
+	</h:commandLink>
+	<br/> <br/>
  	<h:form id = "impfdosenMengeAnzeigeForm">
  	<h:dataTable 
  			value="#{impfstoffchargeMB.herstellerListe }" 
@@ -36,7 +42,7 @@
 	
 	<h:form>
 	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
-		<h:commandButton value="Abbruch" action="#{impfstoffchargeMB.kundeListanzeigeAbbrechenClicked()}" style=" width: 200px" />
+		<h:commandButton value="Abbruch" action="#{impfstoffchargeMB.chargeListeAbbruchKlicked()}" style=" width: 200px" />
 	</h:form>
 	
 	<br />

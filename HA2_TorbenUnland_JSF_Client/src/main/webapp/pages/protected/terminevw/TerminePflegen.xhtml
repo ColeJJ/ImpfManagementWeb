@@ -15,8 +15,12 @@
 	<h:form id="terminTestForm">
 		<h:messages />
 		<h3>Termin anlegen</h3>
-
-		<br/>
+		<br/> <br/>
+       	<h:outputText value="Welcome #{userMB.user.username}" /> || 
+		<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+			<f:ajax execute="@form" render="@form" />
+		</h:commandLink>
+		<br/> <br/>
 		
 		<h:panelGroup id="termin">
 			<h:panelGrid columns="2">

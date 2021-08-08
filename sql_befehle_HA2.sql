@@ -1,41 +1,20 @@
-create table HA2_Patient (
-    PatientenID INT NOT NULL,
-    Name VARCHAR2(20) NOT NULL,
-    Vorname VARCHAR2(20) NOT NULL,
-    Geburtsdatum DATE NOT NULL,
-    Mail VARCHAR2(50),
-    TelefonNr VARCHAR2(20),
-    Constraint PK_Patient PRIMARY KEY (PatientenID)
+drop table HA2_roles cascade constraints;
+create table HA2_roles (
+rolename varchar(20) not null primary key
 );
 
-create table HA2_Impfstoffcharge (
-    ChargeID INT NOT NULL,
-    Anzahl INT NOT NULL,
-    Hersteller VARCHAR2(20) NOT NULL,
-    Datum_Anlieferung DATE NOT NULL,
-    Constraint PK_Impfstoffcharge PRIMARY KEY (ChargeID)
+drop table HA2_user_roles cascade constraints;
+create table HA2_user_roles (
+username varchar(20) not null,
+rolename varchar(20) not null,
+primary key (username, rolename),
+constraint user_roles_fk1 foreign key(username) references HA2_user(username),
+constraint user_roles_fk2 foreign key(rolename) references HA2_roles(rolename)
 );
 
-CREATE SEQUENCE Impfstoffcharge_seq START WITH 10 INCREMENT BY 1;
-
-create table HA2_Termin (
-    TerminID INT NOT NULL,
-    Datum DATE NOT NULL,
-    Uhrzeit VARCHAR2(20) NOT NULL,
-    PatientID INT NOT NULL,
-    isWahrgenommen INT,
-    Constraint PK_Termin PRIMARY KEY (TerminID),
-    Constraint FK_Termin_Patient FOREIGN KEY (PatientID) REFERENCES HA1_Patient(PatientenID)
-);
-
-create table HA2_Impfung (
-    ImpfungID INT NOT NULL,
-    Datum DATE NOT NULL,
-    Uhrzeit VARCHAR2(20) NOT NULL,
-    TerminID INT NOT NULL,
-    ChargeID INT NOT NULL,
-    Bemerkung VARCHAR2(500),
-    Constraint PK_Impfung PRIMARY KEY (ImpfungID),
-    Constraint FK_Impfung_Termin FOREIGN KEY (TerminID) REFERENCES HA1_Termin(TerminID) ON DELETE CASCADE,
-    Constraint FK_Impfung_Impfstoffcharge FOREIGN KEY (ChargeID) REFERENCES HA1_Impfstoffcharge(ChargeID)
-);
+insert into HA2_user (id, username, password) values (1, 'hugo', '123');
+insert into HA2_user (id, username, password) values (2, 'susi', '123');
+insert into HA2_roles (rolename) values ('MATERIALMANAGER');
+insert into HA2_roles (rolename) values ('ARZT');
+insert into HA2_user_roles (username, rolename) values ('hugo', 'MATERIALMANAGER');
+insert into HA2_user_roles (username, rolename) values ('susi', 'ARZT');

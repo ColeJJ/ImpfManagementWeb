@@ -15,8 +15,12 @@
 	<h:form id="patientTestForm">
 		<h:messages />
 		<h3>Patient anlegen</h3>
-
-		<br/>
+		<br/> 
+        <h:outputText value="Welcome #{userMB.user.username}" /> || 
+		<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+			<f:ajax execute="@form" render="@form" />
+		</h:commandLink>
+		<br/> <br/>
 		
 		<h:panelGroup id="patient">
 			<h:panelGrid columns="2">

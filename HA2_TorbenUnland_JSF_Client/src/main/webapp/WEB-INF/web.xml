@@ -22,14 +22,14 @@
     <welcome-file>/pages/protected/Hauptmenue.xhtml</welcome-file>
   </welcome-file-list>
   
-  <!-- <security-constraint>
+  <security-constraint>
     <web-resource-collection>
       <web-resource-name>Protected pages</web-resource-name>
       <url-pattern>/pages/protected/*</url-pattern>     
     </web-resource-collection>
     <auth-constraint>
-      <role-name>ADMIN</role-name>
-      <role-name>USER</role-name>
+      <role-name>MATERIALMANAGER</role-name>
+      <role-name>ARZT</role-name>
     </auth-constraint>
     <user-data-constraint>
    		<transport-guarantee>NONE</transport-guarantee>
@@ -37,12 +37,10 @@
   </security-constraint> 
    
   <security-role>
-  	<role-name>ADMIN</role-name>
+  	<role-name>MATERIALMANAGER</role-name>
   </security-role>
     <security-role>
-  	<role-name>USER</role-name>
-  </security-role>-->
+  	<role-name>ARZT</role-name>
+  </security-role>
   
-  
-
 </web-app>

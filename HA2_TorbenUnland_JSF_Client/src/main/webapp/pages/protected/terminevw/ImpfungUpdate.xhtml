@@ -15,8 +15,12 @@
 	<h:form id="impfungUpdateForm">
 		<h:messages />
 		<h3>Impfung update</h3>
-
-		<br/>
+		<br/> 
+       	<h:outputText value="Welcome #{userMB.user.username}" /> || 
+		<h:commandLink action="#{userMB.logOut()}" value="Abmelden" >
+			<f:ajax execute="@form" render="@form" />
+		</h:commandLink>
+		<br/> <br/>
 		
 		<h:panelGroup id="impfung">
 			<h:panelGrid columns="2">
@@ -55,7 +59,7 @@
 	
 	<h:form>
 	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
-		<h:commandButton value="Abbruch" action="#{terminMB.impfungPflegenAbbruchKlicked()}" style=" width: 200px" />
+		<h:commandButton value="Abbruch" action="#{impfungMB.impfungUpdateAbbruchKlicked()}" style=" width: 200px" />
 	</h:form>	
 	<br />
 </h:body>

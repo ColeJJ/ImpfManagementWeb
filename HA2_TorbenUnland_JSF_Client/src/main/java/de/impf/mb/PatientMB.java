@@ -3,12 +3,14 @@ package de.impf.mb;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.security.enterprise.SecurityContext;
 
 import de.impf.patient.entity.PatientTO;
 import de.impf.patient.usecase.IPatientenPflegen;
@@ -18,6 +20,10 @@ import de.impf.patient.usecase.IPatientenSuchen;
 @RequestScoped
 public class PatientMB implements Serializable{
 
+	@SuppressWarnings("cdi-ambiguous-dependency")
+	@Inject
+	SecurityContext securityContext;
+	
 	/**
 	 * 
 	 */
@@ -68,8 +74,15 @@ public class PatientMB implements Serializable{
 	}
 	
 	//Navigation
+	@RolesAllowed("MATERIALMANAGER")
 	public String startePatientAnlegen() {
-		return "PATIENT_ANLEGEN";
+		if (securityContext.isCallerInRole("MATERIALMANAGER")) {
+			System.out.println("Anzeigen Patient anlegen");
+			return "PATIENT_ANLEGEN";
+		} else {
+			System.out.println("Keine Rechte zum Anzeigen von Patient anlegen");
+			return "STAY_ON_PAGE";	
+		}
 	}
 	
 	public String patientAnlegenAbbrechenClicked() {

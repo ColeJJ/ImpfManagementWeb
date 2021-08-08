@@ -17,5 +17,9 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="HA2_TorbenUnland_EJB_Security.jar" deploy-path="/" handle="module:/resource/HA2_TorbenUnland_EJB_Security/HA2_TorbenUnland_EJB_Security">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
