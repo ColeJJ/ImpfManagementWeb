@@ -26,4 +26,10 @@ public class PatientenSuchen implements IPatientenSuchen{
 		return returnList;
 	}
 
+	@Override
+	public PatientTO findByID(int ID) {
+		Patient aPatient = patientDAO.find(ID);
+		return aPatient.toPatientTO();
+	}
+
 }

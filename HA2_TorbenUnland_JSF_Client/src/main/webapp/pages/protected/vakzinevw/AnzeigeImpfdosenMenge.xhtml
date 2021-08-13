@@ -45,8 +45,10 @@
 		<h:commandButton value="Abbruch" action="#{impfstoffchargeMB.chargeListeAbbruchKlicked()}" style=" width: 200px" />
 	</h:form>
 	
-	<br />
-	
+	<br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
  
 </h:body>
 </html>

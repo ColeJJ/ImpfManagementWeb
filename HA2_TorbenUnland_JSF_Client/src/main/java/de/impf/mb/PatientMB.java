@@ -65,6 +65,7 @@ public class PatientMB implements Serializable{
 		try {
 			patientPflegenFacade.patientAnlegen(this.aPatientTO);
 			sendInfoMessageToUser("Patient angelegt");
+			UserMB.clicked();
 			return "PATIENT_ANLEGEN_ABBRECHEN";
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Kann den Patienten nicht anlegen.");
@@ -78,6 +79,7 @@ public class PatientMB implements Serializable{
 	public String startePatientAnlegen() {
 		if (securityContext.isCallerInRole("MATERIALMANAGER")) {
 			System.out.println("Anzeigen Patient anlegen");
+			UserMB.clicked();
 			return "PATIENT_ANLEGEN";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen von Patient anlegen");
@@ -86,10 +88,12 @@ public class PatientMB implements Serializable{
 	}
 	
 	public String patientAnlegenAbbrechenClicked() {
+		UserMB.clicked();
 		return "PATIENT_ANLEGEN_ABBRECHEN";
 	}
 	
 	public String patientVwAbbruchKlicked() {
+		UserMB.clicked();
 		return "BACK_TO_HAUPTMENUE";
 	}
 

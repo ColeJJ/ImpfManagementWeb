@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
 			<item value="org.eclipse.jst.ejb.ui"/>
@@ -26,6 +26,8 @@
 	<section name="ZipFileImportWizard">
 		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/tounland/Downloads/Bank_REST_V3.jar"/>
+			<item value="/Users/tounland/Downloads/Bank_Security_EJB_V2.jar"/>
 			<item value="/Users/tounland/eclipse/Hausarbeiten/VS2021_HA1_Unland_Torben_Client.jar"/>
 			<item value="/Users/tounland/eclipse/Hausarbeiten/VS2021_HA1_Unland_Torben_Server.jar"/>
 		</list>

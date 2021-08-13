@@ -13,15 +13,18 @@ public class MenueMB {
 	public MenueMB() {}
 	
 	public String startePatientenverwaltung(){
+		UserMB.clicked();
 		return "PATIENTENVERWALTUNG_MENUE";
 	}
 	
 	public String starteTerminverwaltung(){
+		UserMB.clicked();
 		return "TERMINEVERWALTUNG_MENUE";
 	}
 	
 	@RolesAllowed("MATERIALMANAGER")
 	public String starteVakzineverwaltung(){
+		UserMB.clicked();
 		return "VAKZINEVERWALTUNG_MENUE";
 	}
 }

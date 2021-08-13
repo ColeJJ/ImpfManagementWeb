@@ -20,4 +20,9 @@ public class TermineSuchen implements ITermineSuchen{
 		return (List <TerminTO>) terminDAO.getOpenTermine();
 	}
 
+	@Override
+	public List<TerminTO> impftermineFuerPatientNr(int NR) {
+		return (List<TerminTO>) terminDAO.getTermineForPatientNr(NR);
+	}
+
 }

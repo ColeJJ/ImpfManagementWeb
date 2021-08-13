@@ -75,6 +75,7 @@ public class TerminMB implements Serializable{
 		try {
 			this.aTerminTO.setWahrgenommen(false);
 			terminPflegenFacade.terminAnlegen(aTerminTO);
+			UserMB.clicked();
 			sendInfoMessageToUser("Termin angelegt");
 			return "TERMINE_PFLEGEN_ABBRECHEN";
 		} catch (EJBException e) {
@@ -89,6 +90,7 @@ public class TerminMB implements Serializable{
 	
 	//Navigation
 	public String starteTerminverwaltung() {
+		UserMB.clicked();
 		return "TERMINEVERWALTUNG_MENUE";
 	}
 	
@@ -96,6 +98,7 @@ public class TerminMB implements Serializable{
 	public String starteTerminAnlegen() {
 		if (securityContext.isCallerInRole("ARZT")) {
 			System.out.println("Anzeigen Termin pflegen");
+			UserMB.clicked();
 			return "TERMINE_PFLEGEN";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen von Termin pflegen");
@@ -107,6 +110,7 @@ public class TerminMB implements Serializable{
 	public String starteImpfungAnlegen() {
 		if (securityContext.isCallerInRole("ARZT")) {
 			System.out.println("Anzeigen Impfung pflegen");
+			UserMB.clicked();
 			return "IMPFUNG_PFLEGEN";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen von Impfung pflegen");
@@ -115,10 +119,12 @@ public class TerminMB implements Serializable{
 	}
 
 	public String terminVwAbbruchKlicked() {
+		UserMB.clicked();
 		return "BACK_TO_HAUPTMENUE";
 	}
 	
 	public String terminPflegenAbbruchKlicked() {
+		UserMB.clicked();
 		return "TERMINE_PFLEGEN_ABBRECHEN";
 	}
 	
@@ -126,6 +132,7 @@ public class TerminMB implements Serializable{
 	public String starteImpfterminAnsicht() {
 		if (securityContext.isCallerInRole("ARZT")) {
 			System.out.println("Anzeigen Impfungen");
+			UserMB.clicked();
 			return "IMPFTERMINE_ANSEHEN";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen der Impfungen");

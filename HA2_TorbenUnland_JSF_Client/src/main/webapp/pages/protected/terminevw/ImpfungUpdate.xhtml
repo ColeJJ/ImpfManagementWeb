@@ -47,7 +47,7 @@
 				<h:outputLabel value="Genutzte Impfcharge" />
 				<h:selectOneMenu value="#{impfungMB.aImpfungTO.usedChargeID}">
     				<f:selectItems value="#{impfungMB.chargen}" var="charge" itemValue="#{charge.chargeID}" itemLabel="#{charge.hersteller}, #{charge.anzahl}" />
-				</h:selectOneMenu> />
+				</h:selectOneMenu>
 			</h:panelGrid>
 		</h:panelGroup>
 		<br />
@@ -61,6 +61,9 @@
 	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
 		<h:commandButton value="Abbruch" action="#{impfungMB.impfungUpdateAbbruchKlicked()}" style=" width: 200px" />
 	</h:form>	
-	<br />
+	<br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
 </h:body>
 </html>

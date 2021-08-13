@@ -20,10 +20,12 @@ import de.impf.termin.entity.TerminTO;
 @Access(AccessType.FIELD)
 @Table(name="HA2_Termine")
 @NamedQuery(name="Termin.findByID", query="select t from Termin t where t.terminID = :id")
+@NamedQuery(name="Termin.findByPatientID", query="select t from Termin t where t.patientID = :patientid")
 @NamedQuery(name="Termin.getOpenTermine", query="select t from Termin t where t.wahrgenommen = :wahrgenommen")
 public class Termin {
 	
 	public static final String FIND_BY_ID = "Termin.findByID";
+	public static final String FIND_BY_PATIENTID = "Termin.findByPatientID";
 	public static final String GET_OPEN_TERMINE = "Termin.getOpenTermine";
 	
 	//Variablen

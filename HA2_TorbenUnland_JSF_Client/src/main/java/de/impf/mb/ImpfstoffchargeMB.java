@@ -42,6 +42,7 @@ public class ImpfstoffchargeMB implements Serializable{
 	IChargeSuchen chargeSuchenFacade;
 	
 	//Variablen
+	private UserMB user;
 	private ImpfstoffchargeTO aChargeTO;
 	private List<ImpfstoffchargeTO> herstellerListe;
 	private String[] hersteller = {"Biontech", "AstraZeneca", "Moderna"};
@@ -83,6 +84,7 @@ public class ImpfstoffchargeMB implements Serializable{
 		try {
 			chargeErfassenFacade.chargeErfassen(this.aChargeTO);
 			sendInfoMessageToUser("Impfstoffcharge erfasst");
+			UserMB.clicked();
 			return "IMPFSTOFFCHARGE_ERFASSEN_ABBRECHEN";
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Kann die Impfstoffcharge nicht erfassen.");
@@ -97,10 +99,12 @@ public class ImpfstoffchargeMB implements Serializable{
 	
 	//Navigation
 	public String starteVakzineverwaltung() {
+		UserMB.clicked();
 		return "VAKZINEVERWALTUNG_MENUE";
 	}
 	
 	public String chargeErfassenAbbruchKlicked() {
+		UserMB.clicked();
 		return "IMPFSTOFFCHARGE_ERFASSEN_ABBRECHEN";
 	}
 	
@@ -108,6 +112,7 @@ public class ImpfstoffchargeMB implements Serializable{
 	public String starteChargeErfassen() {
 		if (securityContext.isCallerInRole("MATERIALMANAGER")) {
 			System.out.println("Anzeigen Charge erfassen");
+			UserMB.clicked();
 			return "IMPFCHARGE_ERFASSEN";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen von Charge erfassen");
@@ -119,6 +124,7 @@ public class ImpfstoffchargeMB implements Serializable{
 	public String starteAnzeigeImpfdosenMenge() {
 		if (securityContext.isCallerInRole("MATERIALMANAGER")) {
 			System.out.println("Anzeigen Impfdosenmenge");
+			UserMB.clicked();
 			return "ANZEIGE_IMPFDOSENMENGE";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen der Impfdosenmengen");
@@ -127,10 +133,12 @@ public class ImpfstoffchargeMB implements Serializable{
 	}
 
 	public String vakzineVwAbbruchKlicked() {
+		UserMB.clicked();
 		return "BACK_TO_HAUPTMENUE";
 	}
 	
 	public String chargeListeAbbruchKlicked() {
+		UserMB.clicked();
 		return "ANZEIGE_IMPFDOSENMENGE_ABBRECHEN";
 	}
 

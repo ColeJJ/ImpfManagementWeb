@@ -20,6 +20,7 @@
             <h:commandButton 
             			value="Termine anlegen" 
             			action="#{terminMB.starteTerminAnlegen}"
+            			disabled="#{!userMB.isUserArzt()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
@@ -27,6 +28,7 @@
              <h:commandButton 
             			value="Impfung anlegen" 
             			action="#{terminMB.starteImpfungAnlegen}"
+            			disabled="#{!userMB.isUserArzt()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
@@ -34,6 +36,7 @@
               <h:commandButton 
              			value="Impftermine ansehen" 
              			action="#{terminMB.starteImpfterminAnsicht}"
+             			disabled="#{!userMB.isUserArzt()}"
              			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
@@ -47,5 +50,9 @@
             <br />
                
         </h:form>
+        <br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
     </h:body>
 </html>

@@ -42,4 +42,15 @@ public class TerminDAO extends GenericDAO<Termin>{
 		aTermin.setWahrgenommen(WAHRGENOMMEN);
 		super.save(aTermin);
 	}
+
+	public List<TerminTO> getTermineForPatientNr(int NR) {
+		List<TerminTO> terminTOList = new ArrayList<TerminTO>();
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("patientid", NR);
+		List<Termin> terminList = super.findListResult(Termin.FIND_BY_PATIENTID, parameters);
+		for(Termin aTermin:terminList) {
+			terminTOList.add(aTermin.toTerminTO());
+		}
+		return terminTOList;
+	}
 }

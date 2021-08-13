@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="de.security.entity.Patient"/>
-    <fullyQualifiedTypeName name="de.security.usecase.IPatientenPflegenRemote"/>
-    <fullyQualifiedTypeName name="de.security.dao.PatientDAO"/>
-    <fullyQualifiedTypeName name="de.security.AnwendungskernException"/>
-    <fullyQualifiedTypeName name="de.security.entity.internal.Patient"/>
     <fullyQualifiedTypeName name="de.security.entity.PatientTO"/>
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.entity.impl.Impfstoffcharge"/>
     <fullyQualifiedTypeName name="de.impf.impfstoffcharge.dao.ImpfstoffchargeDAO"/>
@@ -40,7 +35,6 @@
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="java.util.ListIterator"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="de.impf.patient.entity.PatientTO"/>
     <fullyQualifiedTypeName name="de.impf.patient.usecase.IPatientenPflegen"/>
     <fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
     <fullyQualifiedTypeName name="javax.faces.view.ViewScoped"/>
@@ -55,4 +49,15 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="de.impf.security.dao.UserDAO"/>
+    <fullyQualifiedTypeName name="de.security.entity.User"/>
+    <fullyQualifiedTypeName name="de.impf.security.entity.User"/>
+    <fullyQualifiedTypeName name="de.impf.security.facade.IUserFacade"/>
+    <fullyQualifiedTypeName name="org.jboss.security.SecurityContext"/>
+    <fullyQualifiedTypeName name="javax.ws.rs.core.SecurityContext"/>
+    <fullyQualifiedTypeName name="javax.resource.spi.work.SecurityContext"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+    <fullyQualifiedTypeName name="javax.security.enterprise.SecurityContext"/>
+    <fullyQualifiedTypeName name="javax.annotation.security.RolesAllowed"/>
+    <fullyQualifiedTypeName name="de.impf.patient.entity.PatientTO"/>
 </qualifiedTypeNameHistroy>

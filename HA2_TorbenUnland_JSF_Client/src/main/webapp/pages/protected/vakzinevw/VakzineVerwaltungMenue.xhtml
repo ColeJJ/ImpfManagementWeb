@@ -20,6 +20,7 @@
             <h:commandButton 
             			value="Impfstoffcharge erfassen" 
             			action="#{impfstoffchargeMB.starteChargeErfassen()}"
+            			disabled="#{!userMB.isUserMaterialmanager()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
@@ -27,6 +28,7 @@
             <h:commandButton 
             			value="Anzeige Impfdosenmenge" 
             			action="#{impfstoffchargeMB.starteAnzeigeImpfdosenMenge()}"
+            			disabled="#{!userMB.isUserMaterialmanager()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
@@ -40,5 +42,9 @@
             <br />
                
         </h:form>
+        <br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
     </h:body>
 </html>

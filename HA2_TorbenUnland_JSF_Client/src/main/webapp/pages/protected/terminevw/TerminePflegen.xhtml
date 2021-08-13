@@ -43,6 +43,9 @@
 	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
 		<h:commandButton value="Abbruch" action="#{terminMB.terminPflegenAbbruchKlicked()}" style=" width: 200px" />
 	</h:form>	
-	<br />
+	<br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
 </h:body>
 </html>

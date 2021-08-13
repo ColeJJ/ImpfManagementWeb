@@ -10,4 +10,5 @@ import de.impf.termin.entity.TerminTO;
 public interface ITermineSuchen {
 	
 	public List<TerminTO> getAllOpenTermine();
+	public List<TerminTO> impftermineFuerPatientNr(int NR);
 }

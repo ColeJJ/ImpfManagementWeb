@@ -91,7 +91,8 @@ public class ImpfungMB implements Serializable{
 			impfungPflegenFacade.impfungAnlegen(this.aImpfungTO);
 			terminePflegenFacade.setTerminWahrgenommen(this.aImpfungTO.getTerminID());
 			sendInfoMessageToUser("Impfung angelegt");
-			return "ANZEIGE_IMPFDOSENMENGE_ABBRECHEN";
+			UserMB.clicked();
+			return "IMPFUNG_PFLEGEN_ABBRECHEN";
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Kann die Impfung nicht anlegen.");
 			return "";
@@ -103,6 +104,7 @@ public class ImpfungMB implements Serializable{
 			impfungPflegenFacade.impfungUpdaten(this.aImpfungTO);
 			chargeErfassenFacade.reduceCharge(this.aImpfungTO.getChargeID());
 			sendInfoMessageToUser("Impfung aktualisiert");
+			UserMB.clicked();
 			return "UPDATE_IMPFUNG_ABBRECHEN";
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Die Impfung konnte nicht aktualisiert werden.");
@@ -121,6 +123,7 @@ public class ImpfungMB implements Serializable{
 	
 	//Navigation
 	public String starteVakzineverwaltung() {
+		UserMB.clicked();
 		return "VAKZINEVERWALTUNG_MENUE";
 	}
 	
@@ -128,6 +131,7 @@ public class ImpfungMB implements Serializable{
 	public String starteImpfungErfassen() {
 		if (securityContext.isCallerInRole("ARZT")) {
 			System.out.println("Anzeigen Impfung erfassen");
+			UserMB.clicked();
 			return "IMPFUNG_PFLEGEN";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen von Impfung erfassen");
@@ -139,6 +143,7 @@ public class ImpfungMB implements Serializable{
 	public String starteAnzeigeImpfdosenMenge() {
 		if (securityContext.isCallerInRole("ARZT")) {
 			System.out.println("Anzeigen Impfdosenmenge");
+			UserMB.clicked();
 			return "ANZEIGE_IMPFDOSENMENGE";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen der Impfdosenmengen");
@@ -147,14 +152,17 @@ public class ImpfungMB implements Serializable{
 	}
 
 	public String vakzineVwAbbruchKlicked() {
+		UserMB.clicked();
 		return "BACK_TO_HAUPTMENUE";
 	}
 
 	public String impfungPflegenAbbruchKlicked() {
+		UserMB.clicked();
 		return "IMPFUNG_PFLEGEN_ABBRECHEN";
 	}
 	
 	public String impfungListanzeigeAbbruchClicked() {
+		UserMB.clicked();
 		return "ANSICHT_IMPFUNG_ABBRECHEN";
 	}
 	
@@ -162,6 +170,7 @@ public class ImpfungMB implements Serializable{
 	public String updateImpfungStart() {
 		if (securityContext.isCallerInRole("ARZT")) {
 			System.out.println("Anzeigen Update Impfung");
+			UserMB.clicked();
 			return "UPDATE_IMPFUNG";
 		} else {
 			System.out.println("Keine Rechte zum Anzeigen von Update Impfung");
@@ -170,6 +179,7 @@ public class ImpfungMB implements Serializable{
 	}
 	
 	public String impfungUpdateAbbruchKlicked() {
+		UserMB.clicked();
 		return "UPDATE_IMPFUNG_ABBRECHEN";
 	}
 	

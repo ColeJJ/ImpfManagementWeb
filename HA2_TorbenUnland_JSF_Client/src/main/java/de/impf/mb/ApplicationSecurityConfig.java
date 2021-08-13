@@ -5,6 +5,7 @@ import javax.inject.Named;
 import javax.security.enterprise.authentication.mechanism.http.FormAuthenticationMechanismDefinition;
 import javax.security.enterprise.authentication.mechanism.http.LoginToContinue;
 import javax.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
+import javax.ws.rs.ApplicationPath;
 
 @FormAuthenticationMechanismDefinition(
         loginToContinue = @LoginToContinue(

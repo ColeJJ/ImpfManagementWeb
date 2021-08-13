@@ -46,9 +46,12 @@
 	<h:form>
 	<!-- Abbruch-Button in eigener FORM, damit Bean-Validation nicht ausgeführt wird -->
 		<h:commandButton value="Abbruch" action="#{patientMB.patientAnlegenAbbrechenClicked()}" style=" width: 200px" />
-	</h:form>
-	
-	<br />
+	</h:form>	
+
+	<br/> <br/>
+    <h:outputText value="Clicks: #{userMB.clicks}" />
+    <br/>
+    <h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
 	
  
 </h:body>

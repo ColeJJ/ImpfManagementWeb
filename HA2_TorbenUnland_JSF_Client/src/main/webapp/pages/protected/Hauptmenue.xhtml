@@ -27,16 +27,16 @@
             </h:commandButton>     			
             <br />
             <h:commandButton 
-             			value="Terminverwaltung" 
-             			action="#{menueMB.starteTerminverwaltung}"
+             			value="Vakzineverwaltung" 
+             			action="#{menueMB.starteVakzineverwaltung}"
              			style=" width: 200px" 
              			>
               <f:ajax execute="@form" render="@form" />
             </h:commandButton>
             <br />
             <h:commandButton 
-             			value="Vakzineverwaltung" 
-             			action="#{menueMB.starteVakzineverwaltung}"
+             			value="Terminverwaltung" 
+             			action="#{menueMB.starteTerminverwaltung}"
              			style=" width: 200px" 
              			>
               <f:ajax execute="@form" render="@form" />
@@ -50,5 +50,9 @@
             </h:commandButton>
             <br /> 
         </h:form>
+        <br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
     </h:body>
 </html>

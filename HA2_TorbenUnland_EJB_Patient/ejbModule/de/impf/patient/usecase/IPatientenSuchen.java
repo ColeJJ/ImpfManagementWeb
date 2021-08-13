@@ -10,4 +10,5 @@ import de.impf.patient.entity.PatientTO;
 public interface IPatientenSuchen {
 
 	public List<PatientTO> patientSuchenByName(String vorname, String name);
+	public PatientTO findByID(int ID);
 }

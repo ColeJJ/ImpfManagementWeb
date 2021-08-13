@@ -20,6 +20,7 @@
             <h:commandButton 
             			value="Patienten anlegen" 
             			action="#{patientMB.startePatientAnlegen}"
+            			disabled="#{!userMB.isUserMaterialmanager()}"
             			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
@@ -30,8 +31,10 @@
              			style=" width: 200px">
                 <f:ajax execute="@form" render="@form" />
             </h:commandButton>
-            <br />
-               
         </h:form>
+        <br/> <br/>
+  		<h:outputText value="Clicks: #{userMB.clicks}" />
+  		<br/>
+  		<h:outputText value="Anmeldezeit: #{userMB.time} seconds" />
     </h:body>
 </html>
