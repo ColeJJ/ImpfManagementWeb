@@ -43,6 +43,7 @@ public class TerminDAO extends GenericDAO<Termin>{
 		super.save(aTermin);
 	}
 
+	//AW5 - fuer den REST Request
 	public List<TerminTO> getTermineForPatientNr(int NR) {
 		List<TerminTO> terminTOList = new ArrayList<TerminTO>();
 		Map<String, Object> parameters = new HashMap<String, Object>();

@@ -1,16 +1,11 @@
 package de.impf.impfstoffcharge.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import javax.ejb.Stateless;
-import javax.persistence.Query;
 
 import de.impf.impfstoffcharge.entity.ImpfstoffchargeTO;
 import de.impf.impfstoffcharge.entity.internal.Impfstoffcharge;

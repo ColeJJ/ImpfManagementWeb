@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="J2EE_EXPORT_OVERWRITE" value="true"/>
+	<item key="J2EE_EXPORT_SOURCE" value="true"/>
 	<list key="J2EE_IMPORT_EJB">
 		<item value="/Users/tounland/Downloads/Bank_Kunde_EJB_V2.jar"/>
 		<item value="/Users/tounland/Downloads/Bank_Kunde_EJB_V1.jar"/>
@@ -11,7 +13,20 @@
 		<item value="WildFly 21.0 Runtime"/>
 	</list>
 	<list key="J2EE_IMPORT_null">
+		<item value="/Users/tounland/Downloads/REST_MessageResource_v2.war"/>
 		<item value="/Users/tounland/Downloads/Bank_JSF_Client_V1.war"/>
 		<item value="/Users/tounland/Downloads/Bank_JSF_Client_V2.war"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="/Users/tounland/eclipse/Hausarbeiten/HA2/HA2_TorbenUnland_JSF_903367.war"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_EJB">
+		<item value="/Users/tounland/eclipse/Hausarbeiten/HA2/HA2_TorbenUnland_EJB_Security.jar"/>
+		<item value="/Users/tounland/eclipse/Hausarbeiten/HA2/HA2_TorbenUnland_EJB_ImpfstoffCharge.jar"/>
+		<item value="/Users/tounland/eclipse/Hausarbeiten/HA2/HA2_TorbenUnland_EJB_Patient.jar"/>
+		<item value="/Users/tounland/eclipse/Hausarbeiten/HA2/HA2_TorbenUnland_EJB_Termin.jar"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_EAR">
+		<item value="/Users/tounland/eclipse/Hausarbeiten/HA2/HA2_TorbenUnland_EAP.ear"/>
 	</list>
 </section>

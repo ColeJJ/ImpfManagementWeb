@@ -3,11 +3,11 @@
 	<name>HA2_TorbenUnland_EAP</name>
 	<comment></comment>
 	<projects>
-		<project>HA2_TorbenUnland_JSF_Client</project>
 		<project>HA2_TorbenUnland_EJB_Termin</project>
 		<project>HA2_TorbenUnland_EJB_ImpfstoffCharge</project>
 		<project>HA2_TorbenUnland_EJB_Patient</project>
 		<project>HA2_TorbenUnland_EJB_Security</project>
+		<project>HA2_TorbenUnland_JSF_903367</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

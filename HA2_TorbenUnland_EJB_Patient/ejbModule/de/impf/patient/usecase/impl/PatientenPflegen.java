@@ -28,7 +28,7 @@ public class PatientenPflegen implements IPatientenPflegen{
 	}
 
 	@Override
-	public List<PatientTO> getAllKunde() {
+	public List<PatientTO> getAllPatienten() {
 		List<Patient> aList = patientDAO.findAll();
 		List<PatientTO> returnList = new ArrayList<PatientTO>();
 		for(Patient aPatient:aList) returnList.add(aPatient.toPatientTO());

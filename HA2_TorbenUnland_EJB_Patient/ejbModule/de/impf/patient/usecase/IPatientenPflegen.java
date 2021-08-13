@@ -10,5 +10,5 @@ import de.impf.patient.entity.PatientTO;
 public interface IPatientenPflegen {
 	
 	public void patientAnlegen(PatientTO aPatientTO);
-	public List<PatientTO> getAllKunde();
+	public List<PatientTO> getAllPatienten();
 }

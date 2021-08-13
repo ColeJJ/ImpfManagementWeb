@@ -67,7 +67,6 @@ public class Impfstoffcharge implements Serializable{
 		
 		//Set Pattern for convertion of LocalDate to String
 		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
-		
 		ImpfstoffchargeTO aImpfstoffchargeTO = new ImpfstoffchargeTO();
 		aImpfstoffchargeTO.setChargeID(this.getChargeID());
 		aImpfstoffchargeTO.setAnzahl(this.getAnzahl());
