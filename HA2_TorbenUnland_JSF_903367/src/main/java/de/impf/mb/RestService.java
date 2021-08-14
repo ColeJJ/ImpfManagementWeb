@@ -32,7 +32,7 @@ public class RestService {
 	IAnzeigeImpfdosenMenge anzeigeImpfdosenMenge;
 	
 	/*
-	 *  http://localhost:8080/HA2_TorbenUnland_JSF_Client/rest/patient/getImpftermine/{nr}
+	 *  http://localhost:8080/HA2_TorbenUnland_JSF_903367/rest/patient/getImpftermine/{nr}
 	 */
     @GET
     @Path("getImpftermine/{nr}")
@@ -51,7 +51,7 @@ public class RestService {
     }
     
     /*
-	 *  http://localhost:8080/HA2_TorbenUnland_JSF_Client/rest/patient/getBestaende
+	 *  http://localhost:8080/HA2_TorbenUnland_JSF_903367/rest/patient/getBestaende
 	 */
     @GET
     @Path("getBestaende")
