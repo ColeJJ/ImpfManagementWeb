@@ -17,6 +17,7 @@ public abstract class GenericDAO<T> {
 	private EntityManager em;
 	
 	private Class<T> entityClass;
+	//kommentar
 	
 	public GenericDAO(){}
 	
